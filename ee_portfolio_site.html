@@ -1,0 +1,196 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: #0d1117; color: #e6edf3; }
+  :root { --accent: #00d4aa; --accent2: #3b82f6; --bg: #0d1117; --bg2: #161b22; --bg3: #21262d; --border: #30363d; --text: #e6edf3; --muted: #8b949e; }
+
+  .site { background: var(--bg); min-height: 100vh; }
+
+  nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 10; }
+  .nav-logo { font-size: 18px; font-weight: 500; color: var(--accent); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+
+  .hero { padding: 5rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+  .hero-tag { color: var(--accent); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+  .hero h1 { font-size: 48px; font-weight: 500; line-height: 1.15; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #0d1117; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; }
+  .btn-outline { background: transparent; color: var(--accent); padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: 1px solid var(--accent); cursor: pointer; }
+
+  .circuit-line { border-top: 1px solid var(--border); margin: 0 2rem; position: relative; }
+  .circuit-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: absolute; top: -4px; left: 40px; }
+
+  .section-label { color: var(--accent); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-size: 26px; font-weight: 500; margin-bottom: 2.5rem; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .skill-card-label { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+  .skill-tag { display: inline-block; background: var(--bg3); color: var(--muted); font-size: 12px; padding: 3px 10px; border-radius: 4px; margin: 3px 3px 3px 0; border: 1px solid var(--border); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: border-color 0.2s; }
+  .project-card:hover { border-color: var(--accent); }
+  .project-icon { width: 36px; height: 36px; background: rgba(0,212,170,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+  .project-icon i { color: var(--accent); font-size: 18px; }
+  .project-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
+  .project-card p { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 0.75rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ptag { font-size: 11px; color: var(--accent2); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); padding: 2px 8px; border-radius: 4px; }
+
+  .exp-item { border-left: 2px solid var(--border); padding-left: 1.25rem; margin-bottom: 2rem; position: relative; }
+  .exp-item::before { content: ''; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: absolute; left: -6px; top: 4px; }
+  .exp-role { font-size: 16px; font-weight: 500; }
+  .exp-org { color: var(--accent); font-size: 14px; margin: 2px 0; }
+  .exp-date { color: var(--muted); font-size: 12px; margin-bottom: 0.5rem; }
+  .exp-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  .resume-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .resume-box h3 { font-size: 18px; font-weight: 500; }
+  .resume-box p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
+  .contact-card i { color: var(--accent); font-size: 20px; }
+  .contact-label { font-size: 12px; color: var(--muted); }
+  .contact-val { font-size: 14px; font-weight: 500; margin-top: 2px; }
+
+  .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
+</style>
+
+<div class="site">
+  <nav>
+    <div class="nav-logo">EE.portfolio</div>
+    <div class="nav-links">
+      <a>Projects</a>
+      <a>Experience</a>
+      <a>Skills</a>
+      <a>Resume</a>
+      <a>Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">Electrical Engineer</div>
+    <h1>Hi, I'm <span>Oscar De La Cerda</span>.<br>I build circuits &amp; systems.</h1>
+    <p>Entry-level electrical engineer with a focus on embedded systems, PCB design, and signal processing. Passionate about turning complex problems into elegant hardware solutions.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">View Projects</button>
+      <button class="btn-outline">Download Resume</button>
+    </div>
+  </div>
+
+  <div class="circuit-line"><div class="circuit-dot"></div></div>
+
+  <section>
+    <div class="section-label">What I've built</div>
+    <div class="section-title">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+        <h3>Autonomous Line Follower</h3>
+        <p>Designed and built a PID-controlled robot using IR sensors and an ATmega328P microcontroller. Achieved sub-5mm tracking accuracy.</p>
+        <div class="project-tags"><span class="ptag">C</span><span class="ptag">ATmega328P</span><span class="ptag">PCB Design</span><span class="ptag">PID Control</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="ti ti-wave-sine" aria-hidden="true"></i></div>
+        <h3>Audio FFT Visualizer</h3>
+        <p>FPGA-based real-time audio spectrum analyzer using Xilinx Artix-7. Implemented FFT in VHDL with a VGA display output.</p>
+        <div class="project-tags"><span class="ptag">VHDL</span><span class="ptag">FPGA</span><span class="ptag">Signal Processing</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="ti ti-battery-charging" aria-hidden="true"></i></div>
+        <h3>Solar MPPT Charger</h3>
+        <p>Designed a maximum power point tracking charger for a 20W solar panel with a custom PCB and boost converter topology.</p>
+        <div class="project-tags"><span class="ptag">Power Electronics</span><span class="ptag">KiCad</span><span class="ptag">MPPT</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="circuit-line"><div class="circuit-dot" style="left:120px"></div></div>
+
+  <section>
+    <div class="section-label">Where I've worked</div>
+    <div class="section-title">Experience</div>
+    <div class="exp-item">
+      <div class="exp-role">Electrical Engineering Intern</div>
+      <div class="exp-org">Company Name · Windsor, CT</div>
+      <div class="exp-date">May 2024 – Aug 2024</div>
+      <div class="exp-desc">Assisted in PCB schematic review, conducted component testing, and contributed to firmware debugging for an IoT sensor platform.</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-role">Undergraduate Research Assistant</div>
+      <div class="exp-org">University Lab Name</div>
+      <div class="exp-date">Sep 2023 – May 2024</div>
+      <div class="exp-desc">Built and characterized analog front-end circuits for a biosignal acquisition system. Presented findings at two department symposiums.</div>
+    </div>
+  </section>
+
+  <div class="circuit-line"><div class="circuit-dot" style="left:200px"></div></div>
+
+  <section>
+    <div class="section-label">Tools &amp; technologies</div>
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-label">Hardware</div>
+        <span class="skill-tag">PCB Design</span><span class="skill-tag">KiCad</span><span class="skill-tag">Altium</span><span class="skill-tag">Oscilloscope</span><span class="skill-tag">Soldering</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Firmware</div>
+        <span class="skill-tag">C / C++</span><span class="skill-tag">VHDL</span><span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span><span class="skill-tag">Arduino</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Simulation</div>
+        <span class="skill-tag">LTspice</span><span class="skill-tag">Multisim</span><span class="skill-tag">ANSYS</span><span class="skill-tag">Simulink</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Platforms</div>
+        <span class="skill-tag">STM32</span><span class="skill-tag">Raspberry Pi</span><span class="skill-tag">FPGA</span><span class="skill-tag">ESP32</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="circuit-line"><div class="circuit-dot" style="left:80px"></div></div>
+
+  <section>
+    <div class="section-label">Download</div>
+    <div class="section-title">Resume / CV</div>
+    <div class="resume-box">
+      <div>
+        <h3>Your Name — EE Resume</h3>
+        <p>Last updated May 2026 · PDF · 1 page</p>
+      </div>
+      <button class="btn-primary" style="display:flex;align-items:center;gap:6px"><i class="ti ti-download" aria-hidden="true"></i> Download PDF</button>
+    </div>
+  </section>
+
+  <div class="circuit-line"><div class="circuit-dot" style="left:160px"></div></div>
+
+  <section>
+    <div class="section-label">Get in touch</div>
+    <div class="section-title">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="ti ti-mail" aria-hidden="true"></i>
+        <div><div class="contact-label">Email</div><div class="contact-val">you@email.com</div></div>
+      </div>
+      <div class="contact-card">
+        <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-val">linkedin.com/in/yourname</div></div>
+      </div>
+      <div class="contact-card">
+        <i class="ti ti-brand-github" aria-hidden="true"></i>
+        <div><div class="contact-label">GitHub</div><div class="contact-val">github.com/yourname</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Built with care · Your Name · Electrical Engineer</div>
+</div>
