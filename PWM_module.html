@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Name — Oscar De La Cerda</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --accent: #00d4aa; --accent2: #3b82f6; --bg: #0d1117; --bg2: #161b22; --bg3: #21262d; --border: #30363d; --text: #e6edf3; --muted: #8b949e; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+    nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 10; }
+    .nav-logo { font-size: 18px; font-weight: 500; color: var(--accent); letter-spacing: 1px; text-decoration: none; }
+    .back-btn { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; text-decoration: none; transition: color 0.2s; }
+    .back-btn:hover { color: var(--accent); }
+
+    .hero { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; }
+    .project-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap; }
+    .ptag { font-size: 12px; color: var(--accent2); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); padding: 3px 10px; border-radius: 4px; }
+    .hero h1 { font-size: 36px; font-weight: 500; line-height: 1.2; margin-bottom: 1rem; }
+    .hero p { color: var(--muted); font-size: 16px; line-height: 1.75; max-width: 680px; }
+
+    .divider { border-top: 1px solid var(--border); margin: 0 2rem; position: relative; }
+    .divider-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: absolute; top: -4px; left: 40px; }
+
+    .content { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .section-label { color: var(--accent); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .section-title { font-size: 22px; font-weight: 500; margin-bottom: 1.5rem; }
+
+    /* Photos */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 3rem; }
+    .photo-placeholder { background: var(--bg2); border: 1px dashed var(--border); border-radius: 10px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 13px; cursor: pointer; transition: border-color 0.2s; }
+    .photo-placeholder:hover { border-color: var(--accent); }
+    .photo-placeholder i { font-size: 28px; color: var(--border); }
+
+    /* Components */
+    .components-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 3rem; }
+    .component-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.875rem 1rem; display: flex; align-items: center; gap: 10px; }
+    .component-card i { color: var(--accent); font-size: 18px; flex-shrink: 0; }
+    .component-name { font-size: 13px; font-weight: 500; }
+    .component-detail { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* Schematic */
+    .schematic-box { background: var(--bg2); border: 1px dashed var(--border); border-radius: 10px; padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 14px; margin-bottom: 3rem; min-height: 200px; }
+    .schematic-box i { font-size: 36px; color: var(--border); }
+
+    /* Results */
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+    .result-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+    .result-val { font-size: 26px; font-weight: 500; color: var(--accent); }
+    .result-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .result-desc { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 3rem; }
+
+    /* Links */
+    .links-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem; }
+    .link-btn { display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; color: var(--text); font-size: 14px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .link-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .link-btn i { font-size: 18px; }
+
+    .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="back-btn">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to Portfolio
+    </a>
+    <a href="index.html" class="nav-logo">EE.Portfolio</a>
+  </nav>
+
+  <!-- ✏️ HERO: Update project name, tags, and description -->
+  <div class="hero">
+    <div class="project-meta">
+      <span class="ptag">C</span>
+      <span class="ptag">ATmega328P</span>
+      <span class="ptag">PID Control</span>
+      <span class="ptag">SolidWorks</span>
+    </div>
+    <h1>Ball Leveler</h1>
+    <p>A PID-controlled system that stabilizes a ball at the center of a platform using IR sensors and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
+  </div>
+
+  <div class="divider"><div class="divider-dot"></div></div>
+
+  <div class="content">
+
+    <!-- PHOTOS -->
+    <div class="section-label">Gallery</div>
+    <div class="section-title">Photos</div>
+    <div class="photo-grid">
+      <!-- ✏️ Replace these placeholders with <img src="yourphoto.jpg"> tags -->
+      <div class="photo-placeholder"><i class="ti ti-photo" aria-hidden="true"></i>Add photo</div>
+      <div class="photo-placeholder"><i class="ti ti-photo" aria-hidden="true"></i>Add photo</div>
+      <div class="photo-placeholder"><i class="ti ti-photo" aria-hidden="true"></i>Add photo</div>
+    </div>
+
+    <!-- SCHEMATIC -->
+    <div class="section-label">Circuit</div>
+    <div class="section-title">Schematic</div>
+    <div class="schematic-box">
+      <!-- ✏️ Replace with <img src="schematic.png" style="max-width:100%;border-radius:8px"> -->
+      <i class="ti ti-circuit-resistor" aria-hidden="true"></i>
+      Add schematic image here
+    </div>
+
+    <!-- COMPONENTS -->
+    <div class="section-label">What's inside</div>
+    <div class="section-title">Components &amp; Materials</div>
+    <div class="components-grid">
+      <!-- ✏️ Add/remove component cards as needed -->
+      <div class="component-card"><i class="ti ti-cpu" aria-hidden="true"></i><div><div class="component-name">ATmega328P</div><div class="component-detail">Microcontroller</div></div></div>
+      <div class="component-card"><i class="ti ti-antenna" aria-hidden="true"></i><div><div class="component-name">IR Sensors</div><div class="component-detail">Position sensing</div></div></div>
+      <div class="component-card"><i class="ti ti-engine" aria-hidden="true"></i><div><div class="component-name">Servo Motor</div><div class="component-detail">Platform actuation</div></div></div>
+      <div class="component-card"><i class="ti ti-certificate" aria-hidden="true"></i><div><div class="component-name">Custom PCB</div><div class="component-detail">Designed in Altium</div></div></div>
+      <div class="component-card"><i class="ti ti-box" aria-hidden="true"></i><div><div class="component-name">3D Printed Frame</div><div class="component-detail">SolidWorks model</div></div></div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section-label">Outcomes</div>
+    <div class="section-title">Results</div>
+    <div class="results-grid">
+      <!-- ✏️ Update values and labels -->
+      <div class="result-card"><div class="result-val">&lt;5mm</div><div class="result-label">Steady-state error</div></div>
+      <div class="result-card"><div class="result-val">~200ms</div><div class="result-label">Settling time</div></div>
+      <div class="result-card"><div class="result-val">50Hz</div><div class="result-label">Control loop rate</div></div>
+    </div>
+    <!-- ✏️ Add a paragraph describing your results -->
+    <p class="result-desc">The PID controller was tuned iteratively using step response testing. Final gains of Kp=1.2, Ki=0.05, Kd=0.8 produced stable leveling across a range of initial disturbances. The system was demonstrated at the end-of-semester design expo.</p>
+
+    <!-- LINKS -->
+    <div class="section-label">Resources</div>
+    <div class="section-title">Links</div>
+    <div class="links-row">
+      <!-- ✏️ Update hrefs or remove links you don't have -->
+      <a href="https://github.com/oadlc/ball-leveler" target="_blank" class="link-btn"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub Repo</a>
+      <a href="report.pdf" target="_blank" class="link-btn"><i class="ti ti-file-text" aria-hidden="true"></i> Project Report</a>
+      <a href="https://youtube.com" target="_blank" class="link-btn"><i class="ti ti-brand-youtube" aria-hidden="true"></i> Demo Video</a>
+    </div>
+
+  </div>
+
+  <div class="footer">Oscar De La Cerda · Electrical Engineer</div>
+
+</body>
+</html>
