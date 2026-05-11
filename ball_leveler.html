@@ -78,7 +78,7 @@
       <span class="ptag">SolidWorks</span>
     </div>
     <h1>Ball Leveler</h1>
-    <p>A PID-controlled system that stabilizes a ball at the center of a platform using IR sensors and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
+    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
   </div>
 
   <div class="divider"><div class="divider-dot"></div></div>
@@ -100,6 +100,12 @@
     <!-- Replace with <img src="schematic.png" style="max-width:100%;border-radius:8px"> -->
       <!-- <i class="ti ti-circuit-resistor" aria-hidden="true"></i> -->
       <img src="PID_schematic.png" style="max-width:100%;border-radius:8px">
+    </div>
+      <p class="result-desc">An MG966R servo was used due to its high torque rating and strong metal gears. A small plastic-geared servo
+       could not handle the quick oscillations due to the beam. As seen from above, the MG966R servo is powered by an external DC source so as to not damage the Arduino output pins.
+      The MG966R draws 2.5A of stall current, which is significantly higher than the 40mA a ATmega328P pin could handle.</p>
+    <div/>
+
     </div>
       <p class="result-desc">As seen from above, the MG966R servo is powered by an external DC source so as to not damage the Arduino output pins.
       The MG966R draws 2.5A of stall current, which is significantly higher than the 40mA a ATmega328P pin could handle.</p>
