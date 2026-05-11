@@ -1,68 +1,74 @@
 
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-sans); background: #0d1117; color: #e6edf3; }
-  :root { --accent: #00d4aa; --accent2: #3b82f6; --bg: #0d1117; --bg2: #161b22; --bg3: #21262d; --border: #30363d; --text: #e6edf3; --muted: #b7bdc3; }
-
-  .site { background: var(--bg); min-height: 100vh; }
-
-  nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 10; }
-  .nav-logo { font-size: 18px; font-weight: 500; color: var(--accent); letter-spacing: 1px; }
-  .nav-links { display: flex; gap: 1.5rem; }
-  .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; cursor: pointer; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-
-  section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
-
-  .hero { padding: 5rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
-  .hero-tag { color: var(--accent); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
-  .hero h1 { font-size: 48px; font-weight: 500; line-height: 1.15; margin-bottom: 1rem; }
-  .hero h1 span { color: var(--accent); }
-  .hero p { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #0d1117; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; }
-  .btn-outline { background: transparent; color: var(--accent); padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: 1px solid var(--accent); cursor: pointer; }
-
-  .circuit-line { border-top: 1px solid var(--border); margin: 0 2rem; position: relative; }
-  .circuit-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: absolute; top: -4px; left: 40px; }
-
-  .section-label { color: var(--accent); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .section-title { font-size: 26px; font-weight: 500; margin-bottom: 2.5rem; }
-
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
-  .skill-card-label { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
-  .skill-tag { display: inline-block; background: var(--bg3); color: var(--muted); font-size: 12px; padding: 3px 10px; border-radius: 4px; margin: 3px 3px 3px 0; border: 1px solid var(--border); }
-
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: border-color 0.2s; }
-  .project-card:hover { border-color: var(--accent); }
-  .project-icon { width: 36px; height: 36px; background: rgba(0,212,170,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
-  .project-icon i { color: var(--accent); font-size: 18px; }
-  .project-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
-  .project-card p { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 0.75rem; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ptag { font-size: 11px; color: var(--accent2); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); padding: 2px 8px; border-radius: 4px; }
-
-  .exp-item { border-left: 2px solid var(--border); padding-left: 1.25rem; margin-bottom: 2rem; position: relative; }
-  .exp-item::before { content: ''; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: absolute; left: -6px; top: 4px; }
-  .exp-role { font-size: 16px; font-weight: 500; }
-  .exp-org { color: var(--accent); font-size: 14px; margin: 2px 0; }
-  .exp-date { color: var(--muted); font-size: 12px; margin-bottom: 0.5rem; }
-  .exp-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
-
-  .resume-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .resume-box h3 { font-size: 18px; font-weight: 500; }
-  .resume-box p { color: var(--muted); font-size: 14px; margin-top: 4px; }
-
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-  .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
-  .contact-card i { color: var(--accent); font-size: 20px; }
-  .contact-label { font-size: 12px; color: var(--muted); }
-  .contact-val { font-size: 14px; font-weight: 500; margin-top: 2px; }
-
-  .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
-</style>
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Oscar De La Cerda — EE Portfolio</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+ <style>
+   * { box-sizing: border-box; margin: 0; padding: 0; }
+   body { font-family: var(--font-sans); background: #0d1117; color: #e6edf3; }
+   :root { --accent: #00d4aa; --accent2: #3b82f6; --bg: #0d1117; --bg2: #161b22; --bg3: #21262d; --border: #30363d; --text: #e6edf3; --muted: #b7bdc3; }
+ 
+   .site { background: var(--bg); min-height: 100vh; }
+ 
+   nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 10; }
+   .nav-logo { font-size: 18px; font-weight: 500; color: var(--accent); letter-spacing: 1px; }
+   .nav-links { display: flex; gap: 1.5rem; }
+   .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+   .nav-links a:hover { color: var(--accent); }
+ 
+   section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+ 
+   .hero { padding: 5rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+   .hero-tag { color: var(--accent); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+   .hero h1 { font-size: 48px; font-weight: 500; line-height: 1.15; margin-bottom: 1rem; }
+   .hero h1 span { color: var(--accent); }
+   .hero p { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 580px; margin-bottom: 2rem; }
+   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+   .btn-primary { background: var(--accent); color: #0d1117; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; }
+   .btn-outline { background: transparent; color: var(--accent); padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: 1px solid var(--accent); cursor: pointer; }
+ 
+   .circuit-line { border-top: 1px solid var(--border); margin: 0 2rem; position: relative; }
+   .circuit-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: absolute; top: -4px; left: 40px; }
+ 
+   .section-label { color: var(--accent); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+   .section-title { font-size: 26px; font-weight: 500; margin-bottom: 2.5rem; }
+ 
+   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+   .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+   .skill-card-label { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+   .skill-tag { display: inline-block; background: var(--bg3); color: var(--muted); font-size: 12px; padding: 3px 10px; border-radius: 4px; margin: 3px 3px 3px 0; border: 1px solid var(--border); }
+ 
+   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+   .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: border-color 0.2s; }
+   .project-card:hover { border-color: var(--accent); }
+   .project-icon { width: 36px; height: 36px; background: rgba(0,212,170,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+   .project-icon i { color: var(--accent); font-size: 18px; }
+   .project-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
+   .project-card p { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 0.75rem; }
+   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+   .ptag { font-size: 11px; color: var(--accent2); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); padding: 2px 8px; border-radius: 4px; }
+ 
+   .exp-item { border-left: 2px solid var(--border); padding-left: 1.25rem; margin-bottom: 2rem; position: relative; }
+   .exp-item::before { content: ''; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: absolute; left: -6px; top: 4px; }
+   .exp-role { font-size: 16px; font-weight: 500; }
+   .exp-org { color: var(--accent); font-size: 14px; margin: 2px 0; }
+   .exp-date { color: var(--muted); font-size: 12px; margin-bottom: 0.5rem; }
+   .exp-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
+ 
+   .resume-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+   .resume-box h3 { font-size: 18px; font-weight: 500; }
+   .resume-box p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+ 
+   .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+   .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
+   .contact-card i { color: var(--accent); font-size: 20px; }
+   .contact-label { font-size: 12px; color: var(--muted); }
+   .contact-val { font-size: 14px; font-weight: 500; margin-top: 2px; }
+ 
+   .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
+ </style>
+</head>
 
 <div class="site">
   <nav>
