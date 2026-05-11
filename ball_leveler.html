@@ -101,14 +101,20 @@
       <!-- <i class="ti ti-circuit-resistor" aria-hidden="true"></i> -->
       <img src="PID_schematic.png" style="max-width:100%;border-radius:8px">
     </div>
-      <p class="result-desc">An MG966R servo was used due to its high torque rating and strong metal gears. A small plastic-geared servo
-       could not handle the quick oscillations due to the beam. As seen from above, the MG966R servo is powered by an external DC source so as to not damage the Arduino output pins.
-      The MG966R draws 2.5A of stall current, which is significantly higher than the 40mA a ATmega328P pin could handle.</p>
+      <p class="result-desc">An MG996R Servo Motor servo was selected due to its high torque rating and durable metal gears. 
+        Smaller plastic-geared servos could not withstand the rapid oscillations caused by the beam and its weight. 
+        Additionally, an IR sensor was chosen instead of an ultrasonic sensor because it provides a continuous analog voltage output. 
+        In contrast, an ultrasonic sensor must wait for an echo to return before producing a measurement. With a 20 ms PID feedback loop, 
+        this sensing delay would reduce the responsiveness and overall performance of the control system.</p>
     <div/>
 
     </div>
-      <p class="result-desc">As seen from above, the MG966R servo is powered by an external DC source so as to not damage the Arduino output pins.
-      The MG966R draws 2.5A of stall current, which is significantly higher than the 40mA a ATmega328P pin could handle.</p>
+      <p class="result-desc">As shown above, the MG996R Servo Motor servo is powered by an external DC source to prevent 
+        damage to the Arduino output pins. The servo can draw up to 2.5 A of stall current, which is far greater than the 
+        40 mA maximum current rating of an ATmega328P output pin. Before using an external power source, the servo was briefly 
+        powered directly from the Arduino pins. This resulted in small, infrequent jitters because the Arduino could not supply 
+        sufficient current to drive the motor properly. A 10 &micro;F bypass capacitor was also added to reduce high-frequency noise by 
+        shunting unwanted signals to ground, improving overall power stability and servo performance.</p>
     <div/>
 
     <div class="section-label">What's inside</div>
