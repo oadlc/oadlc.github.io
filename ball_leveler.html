@@ -99,6 +99,11 @@
         <li><strong>Derivative (D):</strong> Predicts future error by measuring how quickly the error is changing. This helps 
           reduce overshoot and improve system stability.</li>
       </ul>
+      <p class="body-text">A PID controller continuously combines these three terms to determine how much correction should 
+        be applied to the system. For this ball-beam system, the error is the difference between the reference distance (the center
+        of the beam), and the ball's actualy position. That error is then inputted to the PID controller. The output of the controller
+      is an aribitrary number that depends on the P, I, and D constants: in my case it was in the range of -200 to 200. This was then mapped
+      to an angle the servo could use.</p>
     </div>
 
     <div class="section-block">
