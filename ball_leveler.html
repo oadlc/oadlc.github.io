@@ -57,6 +57,13 @@
     .link-btn:hover { border-color: var(--accent); color: var(--accent); }
     .link-btn i { font-size: 18px; }
 
+    ul {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      padding-left: 1.25rem;
+    }
+
     .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
   </style>
 </head>
@@ -78,12 +85,30 @@
       <span class="ptag">SolidWorks</span>
     </div>
     <h1>Ball Leveler</h1>
-    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
+    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F 
+      IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error 
+      with a custom tuned feedback loop.</p>
   </div>
 
   <div class="divider"><div class="divider-dot"></div></div>
 
   <div class="content">
+
+    <div class="section-label">Content</div>
+    <div class="section-title">About PID</div>
+    </div>
+      <p class="result-desc">A PID control system is a feedback control method used to continuously adjust a system 
+        so that it reaches and maintains a desired target value. PID stands for Proportional, Integral, and Derivative, 
+        which are the three components used to calculate the control response.</p>
+      <ul>
+        <li>Proportional (P): Responds to the current error, which is the difference between the desired value and the measured value. 
+          A larger error produces a larger correction.</li>
+        <li>Integral (I): Responds to the accumulation of past errors. This helps eliminate small steady-state errors that the 
+          proportional term alone cannot remove.</li>
+        <li>Derivative (D): Predicts future error by measuring how quickly the error is changing. This helps reduce overshoot and
+          improve system stability.</li>
+      </ul>
+    <div/>
 
 
     <div class="section-label">Gallery</div>
@@ -137,7 +162,9 @@
       <div class="result-card"><div class="result-val">50Hz</div><div class="result-label">Control loop rate</div></div>
     </div>
     <!-- Describe results -->
-    <p class="result-desc">The PID controller was tuned iteratively using step response testing. Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. The system was demonstrated at the end-of-semester design expo.</p>
+    <p class="result-desc">The PID controller was tuned iteratively using step response testing.
+      Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. 
+      The system was demonstrated at the end-of-semester design expo.</p>
 
     <!-- Links -->
     <div class="section-label">Resources</div>
