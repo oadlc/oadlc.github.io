@@ -10,7 +10,6 @@
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; --accent: #111111; }
     body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); font-weight: 500; -webkit-font-smoothing: antialiased; }
 
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -20,35 +19,35 @@
     .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .nav-icons a:hover { color: var(--text); }
 
-    /* HERO */
-    .hero { margin-top: 56px; position: relative; height: 92vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero { margin-top: 56px; position: relative; height: 92vh; min-height: 500px; display: flex; align-items: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat; filter: brightness(0.45); }
-    .hero-content { position: relative; z-index: 2; padding: 0 3rem 4rem; max-width: 860px; }
+    .hero-content { position: relative; z-index: 2; padding: 0 3rem; max-width: 860px; margin: 0 auto; text-align: center; }
     .hero-content h1 { font-size: 52px; font-weight: 400; color: #ffffff; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
-    .hero-content p { font-family: system-ui, sans-serif; font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 580px; margin-bottom: 1.75rem; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-content p { font-family: system-ui, sans-serif; font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn-white { background: #fff; color: #111; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; }
     .btn-ghost { background: transparent; color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid rgba(255,255,255,0.6); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
     .btn-ghost:hover { border-color: #fff; }
 
-    /* SECTIONS */
     .section { max-width: 860px; margin: 0 auto; padding: 5rem 2.5rem; }
     .section + .section { border-top: 1px solid var(--border); }
     .section-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
     .section-title { font-size: 28px; font-weight: 400; margin-bottom: 2rem; }
     .section-body { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
 
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border: 1px solid var(--border); }
-    .project-card { padding: 1.75rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; display: block; transition: background 0.2s; }
-    .project-card:hover { background: var(--bg2); }
-    .project-num { font-family: system-ui, sans-serif; font-size: 11px; color: #aaa; letter-spacing: 2px; margin-bottom: 0.75rem; }
+  
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 3rem; }
+    .project-card { text-decoration: none; color: inherit; display: block; }
+    .project-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; margin-bottom: 1rem; }
+    .project-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; margin-bottom: 1rem; }
+    .project-num { font-family: system-ui, sans-serif; font-size: 11px; color: #aaa; letter-spacing: 2px; margin-bottom: 0.5rem; }
     .project-card h3 { font-size: 17px; font-weight: 400; margin-bottom: 0.5rem; }
     .project-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
     .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; }
+    .learn-more { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text); border: 1px solid var(--border); padding: 8px 16px; display: inline-block; letter-spacing: 0.5px; transition: background 0.2s; }
+    .project-card:hover .learn-more { background: var(--bg2); }
 
-    /* EXPERIENCE */
     .exp-item { display: grid; grid-template-columns: 1fr 160px; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
     .exp-item:first-child { border-top: 1px solid var(--border); }
     .exp-role { font-size: 16px; font-weight: 400; margin-bottom: 3px; }
@@ -56,25 +55,21 @@
     .exp-desc { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; }
     .exp-date { font-family: system-ui, sans-serif; font-size: 12px; color: #aaa; text-align: right; padding-top: 4px; }
 
-    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; border: 1px solid var(--border); }
     .skill-card { padding: 1.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .skill-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
     .skill-tag { font-family: system-ui, sans-serif; display: inline-block; font-size: 12px; color: var(--muted); margin: 3px 8px 3px 0; }
 
-    /* RESUME */
     .resume-box { border: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .resume-box h3 { font-size: 18px; font-weight: 400; }
     .resume-box p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-    /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border: 1px solid var(--border); }
     .contact-card { padding: 1.5rem; border-right: 1px solid var(--border); }
     .contact-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 6px; }
     .contact-val { font-family: system-ui, sans-serif; font-size: 13px; color: var(--text); text-decoration: none; }
     .contact-val:hover { color: var(--muted); }
 
-    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
     .footer-icons { display: flex; gap: 1rem; }
@@ -99,57 +94,56 @@
     </div>
   </nav>
 
-
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
       <h1>Hi, I'm Oscar De La Cerda.</h1>
-      <p>Entry-level electrical engineer with a focus on embedded systems, digital systems, PCB design, 
-        and signal processing. Passionate about turning complex problems into elegant hardware solutions.</p>
-      <!--
-      <div class="hero-btns">
-        <a href="#projects" class="btn-white">View Projects</a>
-        <a href="Oscar's_Resume.pdf" class="btn-ghost" download>Download Resume</a>
-      </div>
-      -->
+      <p>Entry-level electrical engineer with a focus on embedded systems, digital systems, PCB design, and signal processing. 
+        Passionate about turning complex problems into elegant hardware solutions.</p>
     </div>
   </div>
 
   <div class="section">
     <div class="section-label">About</div>
     <div class="section-title">An Engineer in the Making.</div>
-    <p class="section-body">I'm an electrical engineering student at Yale University with hands-on experience 
-      in embedded systems, PCB design, and signal processing. I've built PID-controlled hardware, designed analog 
-      front-end circuits for biosignal acquisition, and worked on FPGA-based systems. I'm driven by a curiosity for 
-      how things work at the hardware level and a desire to build solutions that matter.</p>
+    <p class="section-body">I'm an electrical engineering student at Yale University with hands-on experience in embedded systems, 
+      PCB design, and signal processing. I've built PID-controlled hardware, designed analog front-end circuits for biosignal acquisition, 
+      and worked on FPGA-based systems. I'm driven by a curiosity for how things work at the hardware level and a desire to build solutions 
+      that matter.</p>
   </div>
-
 
   <div class="section" id="projects">
     <div class="section-label">What I've built</div>
     <div class="section-title">Projects</div>
     <div class="projects-grid">
+
       <a href="ball_leveler.html" class="project-card">
+        <img src="PID_beam.jpeg" class="project-img" alt="Ball Leveler">
         <div class="project-num">01</div>
         <h3>Ball Leveler</h3>
         <p>PID-controlled system using IR sensors and an ATmega328P to stabilize a ball at the center of a platform.</p>
         <div class="tags"><span class="tag">C</span><span class="tag">ATmega328P</span><span class="tag">SolidWorks</span><span class="tag">PID</span></div>
+        <span class="learn-more">Learn more →</span>
       </a>
-      
+
       <a href="radio_transmitter.html" class="project-card">
-        <div class="project-num">03</div>
+        <img src="solder_front.jpeg" class="project-img" alt="Radio Transmitter">
+        <div class="project-num">02</div>
         <h3>Radio Transmitter</h3>
         <p>Built an AM radio transmitter on a perforated PCB using a crystal oscillator and audio transformer.</p>
         <div class="tags"><span class="tag">RF Electronics</span><span class="tag">Soldering</span><span class="tag">PCB</span></div>
+        <span class="learn-more">Learn more →</span>
       </a>
 
       <a href="PWM_module.html" class="project-card">
-        <div class="project-num">02</div>
+        <div class="project-img-placeholder">No photo yet</div>
+        <div class="project-num">03</div>
         <h3>PWM Generator</h3>
         <p>Constructed a circuit board that generates a pulse-width modulation signal using an FPGA.</p>
         <div class="tags"><span class="tag">VHDL</span><span class="tag">FPGA</span><span class="tag">Signal Processing</span></div>
+        <span class="learn-more">Learn more →</span>
       </a>
-      
+
     </div>
   </div>
 
@@ -205,7 +199,6 @@
     </div>
   </div>
 
-
   <div class="section" id="resume">
     <div class="section-label">Download</div>
     <div class="section-title">Resume / CV</div>
@@ -217,7 +210,6 @@
       <a href="Oscar's_Resume.pdf" class="btn-white" style="border:1px solid var(--border)" download>Download PDF</a>
     </div>
   </div>
-
 
   <div class="section" id="contact">
     <div class="section-label">Get in touch</div>
