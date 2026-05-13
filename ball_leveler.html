@@ -1,87 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ball Leveler — Oscar De La Cerda</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --accent: #00d4aa; --accent2: #3b82f6; --bg: #0d1117; --bg2: #161b22; --bg3: #21262d; --border: #30363d; --text: #e6edf3; --muted: #b7bdc3; }
-    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+    :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #555555; --light: #aaaaaa; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); }
 
-    nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 10; }
-    .nav-logo { font-size: 18px; font-weight: 500; color: var(--accent); letter-spacing: 1px; text-decoration: none; }
-    .back-btn { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; text-decoration: none; transition: color 0.2s; }
-    .back-btn:hover { color: var(--accent); }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
+    .nav-name { font-size: 15px; font-weight: 400; text-decoration: none; color: var(--text); }
+    .back-btn { font-family: system-ui, sans-serif; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-btn:hover { color: var(--text); }
 
-    .hero { max-width: 760px; margin: 0 auto; padding: 3.5rem 2rem 2rem; }
-    .project-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap; }
-    .ptag { font-size: 12px; color: var(--accent2); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); padding: 3px 10px; border-radius: 4px; }
-    .hero h1 { font-size: 36px; font-weight: 500; line-height: 1.2; margin-bottom: 1rem; }
-    .hero p { color: var(--muted); font-size: 15px; line-height: 1.75; }
+    /* HERO */
+    .hero { max-width: 820px; margin: 0 auto; padding: 4rem 2.5rem 2.5rem; border-bottom: 1px solid var(--border); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
+    .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; }
+    .hero h1 { font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
+    .hero p { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
 
-    .divider { border-top: 1px solid var(--border); margin: 0 2rem; position: relative; }
-    .divider-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: absolute; top: -4px; left: 40px; }
+    /* CONTENT */
+    .content { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
+    .section-block { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    .section-block:last-child { border-bottom: none; }
+    .section-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
+    .section-title { font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
 
-    .content { max-width: 760px; margin: 0 auto; padding: 2.5rem 2rem; }
-
-    .section-label { color: var(--accent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .section-title { font-size: 20px; font-weight: 500; margin-bottom: 1.25rem; }
-    .section-block { margin-bottom: 3rem; }
-
-    p.body-text { color: var(--muted); font-size: 14px; line-height: 1.75; margin-bottom: 1rem; }
-
-    ul { color: var(--muted); font-size: 14px; line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
+    p.body-text { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    ul { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
     ul li { margin-bottom: 0.4rem; }
 
-    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-    .photo-grid img { width: 100%; border-radius: 10px; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    /* PHOTOS */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 
-    .schematic-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-    .schematic-box img { max-width: 100%; border-radius: 8px; display: block; }
+    /* SCHEMATIC */
+    .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); }
+    .schematic-box img { max-width: 100%; display: block; }
 
-    .components-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
-    .component-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.875rem 1rem; display: flex; align-items: center; gap: 10px; }
-    .component-card i { color: var(--accent); font-size: 18px; flex-shrink: 0; }
-    .component-name { font-size: 13px; font-weight: 500; }
-    .component-detail { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    /* COMPONENTS */
+    .components-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .component-card { padding: 1rem 1.25rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .component-card i { color: var(--light); font-size: 18px; flex-shrink: 0; }
+    .component-name { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; color: var(--text); }
+    .component-detail { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1rem; }
-    .result-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
-    .result-val { font-size: 22px; font-weight: 500; color: var(--accent); }
-    .result-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    /* RESULTS */
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .result-card { padding: 1.25rem; border-right: 1px solid var(--border); text-align: center; }
+    .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
+    .result-label { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
 
+    /* LINKS */
     .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .link-btn { display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; color: var(--text); font-size: 14px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-    .link-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .link-btn i { font-size: 18px; }
+    .link-btn { font-family: system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
+    .link-btn:hover { background: var(--bg2); }
+    .link-btn i { font-size: 16px; color: var(--muted); }
+    .sldprt-links { display: flex; flex-direction: column; gap: 8px; margin-top: 1.25rem; }
 
-    .footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 13px; }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-family: system-ui, sans-serif; font-size: 13px; color: var(--light); }
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="back-btn">
-      <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to Portfolio
+      <i class="ti ti-arrow-left"></i> Back to Portfolio
     </a>
-    <a href="index.html" class="nav-logo">EE.Portfolio</a>
+    <a href="index.html" class="nav-name">Oscar De La Cerda</a>
   </nav>
 
   <div class="hero">
-    <div class="project-meta">
-      <span class="ptag">C</span>
-      <span class="ptag">ATmega328P</span>
-      <span class="ptag">PID Control</span>
-      <span class="ptag">SolidWorks</span>
+    <div class="tags">
+      <span class="tag">C</span>
+      <span class="tag">ATmega328P</span>
+      <span class="tag">PID Control</span>
+      <span class="tag">SolidWorks</span>
     </div>
     <h1>Ball Leveler</h1>
-    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, 
-      and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
+    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
   </div>
-
-  <div class="divider"><div class="divider-dot"></div></div>
 
   <div class="content">
 
@@ -89,70 +92,71 @@
       <div class="section-label">What's inside</div>
       <div class="section-title">Components &amp; Materials</div>
       <div class="components-grid">
-        <div class="component-card"><i class="ti ti-cpu" aria-hidden="true"></i><div><div class="component-name">ATmega328P</div><div class="component-detail">Microcontroller</div></div></div>
-        <div class="component-card"><i class="ti ti-antenna" aria-hidden="true"></i><div><div class="component-name">GP2Y0A21YK0F IR Sensor</div><div class="component-detail">Position sensing</div></div></div>
-        <div class="component-card"><i class="ti ti-engine" aria-hidden="true"></i><div><div class="component-name">MG966R Servo Motor</div><div class="component-detail">Platform actuation</div></div></div>
-        <div class="component-card"><i class="ti ti-box" aria-hidden="true"></i><div><div class="component-name">3D Printed Frame</div><div class="component-detail">SolidWorks prints</div></div></div>
+        <div class="component-card"><i class="ti ti-cpu"></i><div><div class="component-name">ATmega328P</div><div class="component-detail">Microcontroller</div></div></div>
+        <div class="component-card"><i class="ti ti-antenna"></i><div><div class="component-name">GP2Y0A21YK0F IR Sensor</div><div class="component-detail">Position sensing</div></div></div>
+        <div class="component-card"><i class="ti ti-engine"></i><div><div class="component-name">MG966R Servo Motor</div><div class="component-detail">Platform actuation</div></div></div>
+        <div class="component-card"><i class="ti ti-box"></i><div><div class="component-name">3D Printed Frame</div><div class="component-detail">SolidWorks prints</div></div></div>
       </div>
     </div>
 
     <div class="section-block">
       <div class="section-label">Content</div>
       <div class="section-title">About PID</div>
-      <p class="body-text">A PID control system is a feedback control method used to continuously adjust a system so that it reaches
-        and maintains a desired target value. PID stands for Proportional, Integral, and Derivative, which are the three components 
-        used to calculate the control response.</p>
+      <p class="body-text">A PID control system is a feedback control method used to continuously adjust 
+        a system so that it reaches and maintains a desired target value. PID stands for Proportional, Integral, 
+        and Derivative, which are the three components used to calculate the control response.</p>
       <ul>
-        <li><strong>Proportional (P):</strong> Responds to the current error — the difference between the desired value and the
-          measured value. A larger error produces a larger correction.</li>
-        <li><strong>Integral (I):</strong> Responds to the accumulation of past errors. This helps eliminate small steady-state 
-          errors that the proportional term alone cannot remove.</li>
-        <li><strong>Derivative (D):</strong> Predicts future error by measuring how quickly the error is changing. This helps 
-          reduce overshoot and improve system stability.</li>
+        <li><strong>Proportional (P):</strong> Responds to the current error — the difference between the desired 
+          value and the measured value. A larger error produces a larger correction.</li>
+        <li><strong>Integral (I):</strong> Responds to the accumulation of past errors. This helps eliminate small 
+          steady-state errors that the proportional term alone cannot remove.</li>
+        <li><strong>Derivative (D):</strong> Predicts future error by measuring how quickly the error is changing. 
+          This helps reduce overshoot and improve system stability.</li>
       </ul>
-      <p class="body-text">A PID controller continuously combines these three terms to determine how much correction should 
-        be applied to the system. For this ball-beam system, the error is the difference between the reference distance (the center
-        of the beam), and the ball's actualy position. That error is then inputted to the PID controller. The output of the controller
-      is an aribitrary number that depends on the P, I, and D constants: in my case it was in the range of -200 to 200. This was then mapped
-      to an angle the servo could use.</p>
+      <p class="body-text">A PID controller continuously combines these three terms to determine how much correction 
+        should be applied to the system. For this ball-beam system, the error is the difference between the reference 
+        distance (the center of the beam) and the ball's actual position. That error is then inputted to the PID controller. 
+        The output of the controller is an arbitrary number that depends on the P, I, and D constants: in my case it was in 
+        the range of -200 to 200. This was then mapped to an angle the servo could use.</p>
       <p class="body-text">Here is the code that implemented the PID system, along with sensor debouncing and managing servo outputs.</p>
-      <a href="SRC.ino" target="_blank" class="link-btn"><i class="ti ti-code" aria-hidden="true"></i> View Source Code</a>
+      <a href="SRC.ino" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Source Code</a>
     </div>
+
 
     <div class="section-block">
       <div class="section-label">Gallery</div>
-      <div class="section-title">Photo</div>
+      <div class="section-title">Photos</div>
       <div class="photo-grid">
         <img src="PID_beam.jpeg" alt="Ball Leveler photo">
       </div>
-      
-      <p class="body-text">The following are links to SLDPRT files made on Solidworks. These include the base of the beam,
-      the hinge mechanism, and the case for the MG966R servo that allows it to stand upright.</p>
-      <a href="Base_for_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the base</a>
-      <a href="Dynamic_hinge_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the dynamic hinge at centroid</a>
-      <a href="Static_hinge_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the static hinge at centroid</a>
-      <a href="IR_mount.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download IR sensor mount</a>
-      <a href="MG966R_holder.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the MG966R stand</a>
-      <a href="beam_hinge.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the hinge 15cm from centroid</a>
-      <a href="double_holed_rod.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the rod that connects motor and beam</a>
-      <a href="MG966R_disk.SLDPRT" class="link-btn" download><i class="ti ti-cube" aria-hidden="true"></i> Download the disk for MG966R</a>
+      <p class="body-text">The following are links to SLDPRT files made in SolidWorks. These include the base of the beam, 
+        the hinge mechanism, and the case for the MG966R servo that allows it to stand upright.</p>
+      <div class="sldprt-links">
+        <a href="Base_for_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Base for beam</a>
+        <a href="Dynamic_hinge_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Dynamic hinge at centroid</a>
+        <a href="Static_hinge_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Static hinge at centroid</a>
+        <a href="IR_mount.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> IR sensor mount</a>
+        <a href="MG966R_holder.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> MG966R stand</a>
+        <a href="beam_hinge.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Hinge 15cm from centroid</a>
+        <a href="double_holed_rod.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Rod connecting motor and beam</a>
+        <a href="MG966R_disk.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Disk for MG966R</a>
+      </div>
     </div>
 
     <div class="section-block">
       <div class="section-label">Circuit</div>
       <div class="section-title">Schematic</div>
-      
       <div class="schematic-box">
         <img src="PID_schematic.png" alt="Circuit schematic">
       </div>
-      
-      <p class="body-text">An MG996R Servo Motor was selected due to its high torque rating and durable metal gears. 
+      <p class="body-text">An MG996R Servo Motor was selected due to its high torque rating and durable metal gears.
         Smaller plastic-geared servos could not withstand the rapid oscillations caused by the beam and its weight. 
-        Additionally, an IR sensor was chosen instead of an ultrasonic sensor because it provides a continuous analog voltage output. 
+        Additionally, an IR sensor was chosen instead of an ultrasonic sensor because it provides a continuous analog voltage output.
         In contrast, an ultrasonic sensor must wait for an echo to return before producing a measurement. With a 20 ms PID feedback loop, 
         this sensing delay would reduce the responsiveness and overall performance of the control system.</p>
+      
       <p class="body-text">As shown above, the MG996R servo is powered by an external DC source to prevent damage to the Arduino output pins. 
-        The servo can draw up to 2.5 A of stall current, which is far greater than the 40 mA maximum current rating of an ATmega328P output pin. 
+        The servo can draw up to 2.5 A of stall current, which is far greater than the 40 mA maximum current rating of an ATmega328P output pin.
         Before using an external power source, the servo was briefly powered directly from the Arduino pins. This resulted in small, infrequent 
         jitters because the Arduino could not supply sufficient current to drive the motor properly. A 10 &micro;F bypass capacitor was also added 
         to reduce high-frequency noise by shunting unwanted signals to ground, improving overall power stability and servo performance.</p>
@@ -167,23 +171,21 @@
         <div class="result-card"><div class="result-val">~2s</div><div class="result-label">Settling time</div></div>
         <div class="result-card"><div class="result-val">50Hz</div><div class="result-label">Control loop rate</div></div>
       </div>
-      <p class="body-text" style="margin-top:1rem">The PID controller was tuned iteratively using step response testing. 
-        Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. The system 
-        was demonstrated at the end-of-semester design expo.</p>
+      <p class="body-text" style="margin-top:1rem">The PID controller was tuned iteratively using step response testing. Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. The system was demonstrated at the end-of-semester design expo.</p>
     </div>
 
-    <!-- LINKS -->
+
     <div class="section-block">
       <div class="section-label">Resources</div>
       <div class="section-title">Links</div>
       <div class="links-row">
-        <a href="PID_beam.mp4" target="_blank" class="link-btn"><i class="ti ti-video" aria-hidden="true"></i> Demo Video</a>
+        <a href="PID_beam.mp4" target="_blank" class="link-btn"><i class="ti ti-video"></i> Demo Video</a>
       </div>
     </div>
 
   </div>
 
-  <div class="footer">Oscar De La Cerda · Electrical Engineer</div>
+  <footer>Oscar De La Cerda · Electrical Engineer</footer>
 
 </body>
 </html>
