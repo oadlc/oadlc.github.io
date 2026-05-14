@@ -46,7 +46,11 @@
     .link-btn:hover { background: var(--bg2); }
     .link-btn i { font-size: 16px; color: var(--muted); }
 
-    footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-family: system-ui, sans-serif; font-size: 13px; color: var(--light); }
+    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 4rem; }
+    .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
+    .footer-icons { display: flex; gap: 1rem; }
+    .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
+    .footer-icons a:hover { color: var(--text); }
   </style>
 </head>
 <body>
@@ -98,7 +102,13 @@
 
   </div>
 
-  <footer>Oscar De La Cerda · Electrical Engineer</footer>
+  <footer>
+    <span class="footer-name">© 2026 Oscar De La Cerda · Electrical Engineer</span>
+    <div class="footer-icons">
+      <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
+      <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
