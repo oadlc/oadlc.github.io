@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; --accent: #111111; }
-    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); font-weight: 500; -webkit-font-smoothing: antialiased; }
+    :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
 
+    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -19,57 +20,26 @@
     .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .nav-icons a:hover { color: var(--text); }
 
-    .hero { margin-top: 56px; position: relative; height: 92vh; min-height: 500px; display: flex; align-items: center; overflow: hidden; }
+    /* HERO */
+    .hero { margin-top: 56px; position: relative; height: 92vh; min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat; filter: brightness(0.45); }
-    .hero-content { position: relative; z-index: 2; padding: 0 3rem; max-width: 860px; margin: 0 auto; text-align: center; }
-    .hero-content h1 { font-size: 52px; font-weight: 400; color: #ffffff; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
-    .hero-content p { font-family: system-ui, sans-serif; font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 580px; margin: 0 auto; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .hero-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 4rem; max-width: 860px; width: 100%; padding: 0 3rem; }
+
+    /* PHOTO */
+    .hero-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.3); }
+    .hero-photo-placeholder { width: 220px; height: 220px; border-radius: 50%; flex-shrink: 0; border: 2px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-family: system-ui, sans-serif; font-size: 12px; text-align: center; padding: 1rem; }
+
+    /* BIO */
+    .hero-bio { flex: 1; }
+    .hero-bio h1 { font-size: 42px; font-weight: 400; color: #ffffff; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.5px; }
+    .hero-bio .subtitle { font-family: system-ui, sans-serif; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.25rem; }
+    .hero-bio p { font-family: system-ui, sans-serif; font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 1.75rem; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn-white { background: #fff; color: #111; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; }
-    .btn-ghost { background: transparent; color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid rgba(255,255,255,0.6); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
+    .btn-ghost { background: transparent; color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid rgba(255,255,255,0.5); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
     .btn-ghost:hover { border-color: #fff; }
 
-    .section { max-width: 860px; margin: 0 auto; padding: 5rem 2.5rem; }
-    .section + .section { border-top: 1px solid var(--border); }
-    .section-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .section-title { font-size: 28px; font-weight: 400; margin-bottom: 2rem; }
-    .section-body { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
-
-  
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 3rem; }
-    .project-card { text-decoration: none; color: inherit; display: block; }
-    .project-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; margin-bottom: 1rem; }
-    .project-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; margin-bottom: 1rem; }
-    .project-num { font-family: system-ui, sans-serif; font-size: 11px; color: #aaa; letter-spacing: 2px; margin-bottom: 0.5rem; }
-    .project-card h3 { font-size: 17px; font-weight: 400; margin-bottom: 0.5rem; }
-    .project-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
-    .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; }
-    .learn-more { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text); border: 1px solid var(--border); padding: 8px 16px; display: inline-block; letter-spacing: 0.5px; transition: background 0.2s; }
-    .project-card:hover .learn-more { background: var(--bg2); }
-
-    .exp-item { display: grid; grid-template-columns: 1fr 160px; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-    .exp-item:first-child { border-top: 1px solid var(--border); }
-    .exp-role { font-size: 16px; font-weight: 400; margin-bottom: 3px; }
-    .exp-org { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 0.5rem; }
-    .exp-desc { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; }
-    .exp-date { font-family: system-ui, sans-serif; font-size: 12px; color: #aaa; text-align: right; padding-top: 4px; }
-
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; border: 1px solid var(--border); }
-    .skill-card { padding: 1.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .skill-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
-    .skill-tag { font-family: system-ui, sans-serif; display: inline-block; font-size: 12px; color: var(--muted); margin: 3px 8px 3px 0; }
-
-    .resume-box { border: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .resume-box h3 { font-size: 18px; font-weight: 400; }
-    .resume-box p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border: 1px solid var(--border); }
-    .contact-card { padding: 1.5rem; border-right: 1px solid var(--border); }
-    .contact-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 6px; }
-    .contact-val { font-family: system-ui, sans-serif; font-size: 13px; color: var(--text); text-decoration: none; }
-    .contact-val:hover { color: var(--muted); }
-
+    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
     .footer-icons { display: flex; gap: 1rem; }
@@ -80,13 +50,11 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-name">Oscar De La Cerda</a>
+    <a href="index.html" class="nav-name">Oscar De La Cerda</a>
     <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
+      <a href="projects.html">Projects</a>
+      <a href="Oscar's_Resume.pdf" download>Resume</a>
+      <a href="mailto:oscardelac07@gmail.com">Contact</a>
       <div class="nav-icons">
         <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
         <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
@@ -97,136 +65,20 @@
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Hi, I'm Oscar De La Cerda.</h1>
-      <p>Entry-level electrical engineer with a focus on embedded systems, digital systems, PCB design, and signal processing. 
-        Passionate about turning complex problems into elegant hardware solutions.</p>
-    </div>
-  </div>
 
-  <div class="section">
-    <div class="section-label">About</div>
-    <div class="section-title">An Engineer in the Making.</div>
-    <p class="section-body">I'm an electrical engineering student at Yale University with hands-on experience in embedded systems, 
-      PCB design, and signal processing. I've built PID-controlled hardware, designed analog front-end circuits for biosignal acquisition, 
-      and worked on FPGA-based systems. I'm driven by a curiosity for how things work at the hardware level and a desire to build solutions 
-      that matter.</p>
-  </div>
+      <!-- ✏️ Replace with: <img src="yourphoto.jpg" class="hero-photo" alt="Oscar De La Cerda"> -->
+      <div class="hero-photo-placeholder">Add your photo here</div>
 
-  <div class="section" id="projects">
-    <div class="section-label">What I've built</div>
-    <div class="section-title">Projects</div>
-    <div class="projects-grid">
+      <div class="hero-bio">
+        <div class="subtitle">Electrical Engineer</div>
+        <h1>Oscar De La Cerda</h1>
+        <p>I'm an electrical engineering student at Yale University with hands-on experience in embedded systems, PCB design, and signal processing. I've built PID-controlled hardware, designed analog front-end circuits for biosignal acquisition, and worked on FPGA-based systems. Driven by curiosity for how things work at the hardware level.</p>
+        <div class="hero-btns">
+          <a href="projects.html" class="btn-white">View Projects</a>
+          <a href="Oscar's_Resume.pdf" class="btn-ghost" download>Download Resume</a>
+        </div>
+      </div>
 
-      <a href="ball_leveler.html" class="project-card">
-        <img src="PID_beam.jpeg" class="project-img" alt="Ball Leveler">
-        <div class="project-num">01</div>
-        <h3>Ball Leveler</h3>
-        <p>PID-controlled system using IR sensors and an ATmega328P to stabilize a ball at the center of a platform.</p>
-        <div class="tags"><span class="tag">C</span><span class="tag">ATmega328P</span><span class="tag">SolidWorks</span><span class="tag">PID</span></div>
-        <span class="learn-more">Learn more →</span>
-      </a>
-
-      <a href="radio_transmitter.html" class="project-card">
-        <img src="solder_front.jpeg" class="project-img" alt="Radio Transmitter">
-        <div class="project-num">02</div>
-        <h3>Radio Transmitter</h3>
-        <p>Built an AM radio transmitter on a perforated PCB using a crystal oscillator and audio transformer.</p>
-        <div class="tags"><span class="tag">RF Electronics</span><span class="tag">Soldering</span><span class="tag">PCB</span></div>
-        <span class="learn-more">Learn more →</span>
-      </a>
-
-      <a href="PWM_module.html" class="project-card">
-        <div class="project-img-placeholder">No photo yet</div>
-        <div class="project-num">03</div>
-        <h3>PWM Generator</h3>
-        <p>Constructed a circuit board that generates a pulse-width modulation signal using an FPGA.</p>
-        <div class="tags"><span class="tag">VHDL</span><span class="tag">FPGA</span><span class="tag">Signal Processing</span></div>
-        <span class="learn-more">Learn more →</span>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="section" id="experience">
-    <div class="section-label">Involvement at Yale</div>
-    <div class="section-title">Experience</div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Yale Undergraduate Aerospace Association</div>
-        <div class="exp-org">Yale University</div>
-        <div class="exp-desc">PCB schematic review, component testing, and firmware debugging for an IoT sensor platform.</div>
-      </div>
-      <div class="exp-date">Nov 2024 — Present</div>
-    </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Undergraduate Research Assistant</div>
-        <div class="exp-org">Tang Lab</div>
-        <div class="exp-desc">Built and characterized analog front-end circuits for a biosignal acquisition system.</div>
-      </div>
-      <div class="exp-date">May 2026 — Present</div>
-    </div>
-    <div class="exp-item">
-      <div>
-        <div class="exp-role">Physics Peer Tutor</div>
-        <div class="exp-org">Yale University</div>
-        <div class="exp-desc">Tutored undergraduate students in introductory and intermediate physics coursework.</div>
-      </div>
-      <div class="exp-date">May 2026 — Present</div>
-    </div>
-  </div>
-
-  <div class="section" id="skills">
-    <div class="section-label">Tools &amp; Technologies</div>
-    <div class="section-title">Skills</div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-label">Hardware</div>
-        <span class="skill-tag">PCB Design</span><span class="skill-tag">Altium</span><span class="skill-tag">LTSpice</span><span class="skill-tag">Oscilloscope</span><span class="skill-tag">Soldering</span><span class="skill-tag">Actuators</span>
-      </div>
-      <div class="skill-card">
-        <div class="skill-label">Firmware</div>
-        <span class="skill-tag">C / C++</span><span class="skill-tag">Racket</span><span class="skill-tag">VHDL</span><span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span>
-      </div>
-      <div class="skill-card">
-        <div class="skill-label">Simulation</div>
-        <span class="skill-tag">LTspice</span><span class="skill-tag">Multisim</span>
-      </div>
-      <div class="skill-card">
-        <div class="skill-label">Platforms</div>
-        <span class="skill-tag">Arduino</span><span class="skill-tag">SolidWorks</span><span class="skill-tag">FPGA</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="resume">
-    <div class="section-label">Download</div>
-    <div class="section-title">Resume / CV</div>
-    <div class="resume-box">
-      <div>
-        <h3>Oscar De La Cerda — EE Resume</h3>
-        <p>Last updated May 2026 · PDF · 1 page</p>
-      </div>
-      <a href="Oscar's_Resume.pdf" class="btn-white" style="border:1px solid var(--border)" download>Download PDF</a>
-    </div>
-  </div>
-
-  <div class="section" id="contact">
-    <div class="section-label">Get in touch</div>
-    <div class="section-title">Contact</div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-label">Email</div>
-        <a href="mailto:oscardelac07@gmail.com" class="contact-val">oscardelac07@gmail.com</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-label">LinkedIn</div>
-        <a href="https://linkedin.com/in/oscardelacerda/" target="_blank" class="contact-val">linkedin.com/in/oscardelacerda</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-label">GitHub</div>
-        <a href="https://github.com/oadlc" target="_blank" class="contact-val">github.com/oadlc</a>
-      </div>
     </div>
   </div>
 
