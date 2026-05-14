@@ -10,7 +10,7 @@
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; }
     body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
 
-    /* NAV */
+
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -20,27 +20,30 @@
     .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .nav-icons a:hover { color: var(--text); }
 
-    /* HERO */
-    .hero { margin-top: 56px; position: relative; height: 92vh; min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    /* HERO — circuit bg + name only */
+    .hero { margin-top: 56px; position: relative; height: 85vh; min-height: 460px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat; filter: brightness(0.45); }
-    .hero-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 4rem; max-width: 860px; width: 100%; padding: 0 3rem; }
+    .hero-text { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
+    .hero-text h1 { font-size: 54px; font-weight: 400; color: #ffffff; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; }
+    .hero-text p { font-family: system-ui, sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); letter-spacing: 3px; text-transform: uppercase; }
 
-    /* PHOTO */
-    .hero-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.3); }
-    .hero-photo-placeholder { width: 220px; height: 220px; border-radius: 50%; flex-shrink: 0; border: 2px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-family: system-ui, sans-serif; font-size: 12px; text-align: center; padding: 1rem; }
 
-    /* BIO */
-    .hero-bio { flex: 1; }
-    .hero-bio h1 { font-size: 42px; font-weight: 400; color: #ffffff; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.5px; }
-    .hero-bio .subtitle { font-family: system-ui, sans-serif; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .hero-bio p { font-family: system-ui, sans-serif; font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 1.75rem; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: #111; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; }
-    .btn-ghost { background: transparent; color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid rgba(255,255,255,0.5); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
-    .btn-ghost:hover { border-color: #fff; }
+    .bio-section { max-width: 900px; margin: 0 auto; padding: 6rem 2.5rem; display: flex; align-items: flex-start; gap: 4rem; border-bottom: 1px solid var(--border); }
+    .bio-photo { width: 260px; flex-shrink: 0; }
+    .bio-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    .bio-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--bg2); border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; text-align: center; padding: 1rem; }
+    .bio-text { flex: 1; padding-top: 0.5rem; }
+    .bio-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .bio-text h2 { font-size: 30px; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: -0.3px; }
+    .bio-text p { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+    .bio-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.75rem; }
+    .btn-dark { background: var(--text); color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s; }
+    .btn-dark:hover { opacity: 0.8; }
+    .btn-outline { background: transparent; color: var(--text); padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid var(--border); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: var(--text); }
 
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    footer { padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
@@ -62,23 +65,31 @@
     </div>
   </nav>
 
+
   <div class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-content">
+    <div class="hero-text">
+      <h1>Oscar De La Cerda</h1>
+      <p>Electrical Engineer · Yale University</p>
+    </div>
+  </div>
 
-      <!-- ✏️ Replace with: <img src="yourphoto.jpg" class="hero-photo" alt="Oscar De La Cerda"> -->
-      <div class="hero-photo-placeholder">Add your photo here</div>
 
-      <div class="hero-bio">
-        <div class="subtitle">Electrical Engineer</div>
-        <h1>Oscar De La Cerda</h1>
-        <p>I'm an electrical engineering student at Yale University with hands-on experience in embedded systems, PCB design, and signal processing. I've built PID-controlled hardware, designed analog front-end circuits for biosignal acquisition, and worked on FPGA-based systems. Driven by curiosity for how things work at the hardware level.</p>
-        <div class="hero-btns">
-          <a href="projects.html" class="btn-white">View Projects</a>
-          <a href="Oscar's_Resume.pdf" class="btn-ghost" download>Download Resume</a>
-        </div>
+  <div class="bio-section">
+    <div class="bio-photo">
+      <!-- Replace with: <img src="yourphoto.jpg" alt="Oscar De La Cerda"> -->
+      <div class="bio-photo-placeholder">Add your photo here</div>
+    </div>
+    <div class="bio-text">
+      <div class="bio-label">About me</div>
+      <h2>An Engineer in the Making.</h2>
+      <p>I'm an electrical engineering student at Yale University with hands-on experience in embedded systems, PCB design, and signal processing.</p>
+      <p>I've built PID-controlled hardware, designed analog front-end circuits for Yale's Rocketry club, and worked on FPGA-based systems. 
+        I'm driven by a curiosity for how things work at the hardware level and a desire to build solutions that matter.</p>
+      <div class="bio-btns">
+        <a href="projects.html" class="btn-dark">View Projects</a>
+        <a href="Oscar's_Resume.pdf" class="btn-outline" download>Download Resume</a>
       </div>
-
     </div>
   </div>
 
