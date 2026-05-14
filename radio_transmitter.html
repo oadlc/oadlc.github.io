@@ -5,29 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Radio Transmitter — Oscar De La Cerda</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #555555; --light: #aaaaaa; }
-    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
 
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; text-decoration: none; color: var(--text); }
-    .back-btn { font-family: system-ui, sans-serif; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-btn { font-family: 'Open Sans', sans-serif; display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .back-btn:hover { color: var(--text); }
 
     .hero { max-width: 820px; margin: 0 auto; padding: 4rem 2.5rem 2.5rem; border-bottom: 1px solid var(--border); }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
     .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; }
-    .hero h1 { font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
-    .hero p { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
+    .hero p { font-family: 'Open Sans', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
 
     .content { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
     .section-block { padding: 3rem 0; border-bottom: 1px solid var(--border); }
     .section-block:last-child { border-bottom: none; }
-    .section-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
-    .section-title { font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
 
-    p.body-text { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    p.body-text { font-family: 'Open Sans', sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
 
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1.5rem; }
     .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
@@ -35,19 +36,13 @@
     .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); min-height: 180px; }
     .schematic-box img { max-width: 100%; display: block; }
 
-    .components-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-    .component-card { padding: 1rem 1.25rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-    .component-card i { color: var(--light); font-size: 18px; flex-shrink: 0; }
-    .component-name { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; color: var(--text); }
-    .component-detail { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); margin-top: 2px; }
-
     .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
     .result-card { padding: 1.25rem; border-right: 1px solid var(--border); text-align: center; }
     .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
     .result-label { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
 
     .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .link-btn { font-family: system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
+    .link-btn { font-family: 'Open Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
     .link-btn:hover { background: var(--bg2); }
     .link-btn i { font-size: 16px; color: var(--muted); }
 
@@ -64,45 +59,25 @@
   </nav>
 
   <div class="hero">
-    <div class="tags">
-      <span class="tag">RF Electronics</span>
-      <span class="tag">Soldering</span>
-      <span class="tag">Perforated PCB</span>
-      <span class="tag">Signal Processing</span>
-      <span class="tag">Fourier Analysis</span>
-    </div>
     <h1>Radio Transmitter</h1>
-    <p>How does a radio actually work? Through this project, I gained a deeper understanding of the subject. The goal was to build an AM radio transmitter using two main components: an audio transformer and a 1 MHz crystal oscillator.</p>
+    <p>How does a radio actually work? Through this project, I gained a deeper understanding of the subject. 
+      The goal was to build an AM radio transmitter using two main components: an audio transformer and a 1 MHz crystal oscillator.</p>
   </div>
 
   <div class="content">
 
- 
     <div class="section-block">
-      <div class="section-label">What's inside</div>
-      <div class="section-title">Components &amp; Materials</div>
-      <div class="components-grid">
-        <div class="component-card"><i class="ti ti-transformer"></i><div><div class="component-name">Audio Transformer</div><div class="component-detail">Signal modulation</div></div></div>
-        <div class="component-card"><i class="ti ti-wave-sine"></i><div><div class="component-name">1MHz Crystal Oscillator</div><div class="component-detail">Carrier frequency</div></div></div>
-        <div class="component-card"><i class="ti ti-grid-dots"></i><div><div class="component-name">Perforated Board</div><div class="component-detail">PCB substrate</div></div></div>
-        <div class="component-card"><i class="ti ti-tool"></i><div><div class="component-name">Solder &amp; Wire</div><div class="component-detail">Assembly</div></div></div>
-      </div>
-    </div>
-
-
-    <div class="section-block">
-      <div class="section-label">What it looks like</div>
       <div class="section-title">Photos</div>
       <div class="photo-grid">
         <img src="solder_front.jpeg" alt="Front of transmitter">
         <img src="solder_back.jpeg" alt="Back of transmitter">
       </div>
       <p class="body-text">The pictures above show the 2 components soldered and connected via wires on a perforated board. 
-        On the left of the first picture is the audio transformer, and on the right is the crystal oscillator.</p>
+        The first picture on the left shows the two components: on the left, the audio transformer, and on the right, the crystal
+      oscillator. The second picture shows the soldered joints on the back of the perforated board.</p>
     </div>
 
     <div class="section-block">
-      <div class="section-label">Circuit</div>
       <div class="section-title">Schematic</div>
       <div class="schematic-box">
         <img src="radio_schematic.png" alt="Radio transmitter schematic">
@@ -110,7 +85,6 @@
     </div>
 
     <div class="section-block">
-      <div class="section-label">Outcomes</div>
       <div class="section-title">Results</div>
       <div class="results-grid">
         <div class="result-card"><div class="result-val">1MHz</div><div class="result-label">Carrier frequency</div></div>
