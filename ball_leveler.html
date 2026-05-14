@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ball Leveler — Oscar De La Cerda</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #555555; --light: #aaaaaa; }
@@ -20,7 +22,7 @@
     .hero { max-width: 820px; margin: 0 auto; padding: 4rem 2.5rem 2.5rem; border-bottom: 1px solid var(--border); }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
     .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; }
-    .hero h1 { font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
     .hero p { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
 
     /* CONTENT */
@@ -28,7 +30,7 @@
     .section-block { padding: 3rem 0; border-bottom: 1px solid var(--border); }
     .section-block:last-child { border-bottom: none; }
     .section-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
-    .section-title { font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
 
     p.body-text { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
     ul { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
@@ -76,29 +78,11 @@
   </nav>
 
   <div class="hero">
-    <!-- <div class="tags">
-      <span class="tag">C</span>
-      <span class="tag">ATmega328P</span>
-      <span class="tag">PID Control</span>
-      <span class="tag">SolidWorks</span>
-    </div> -->
     <h1>Ball Leveler</h1>
     <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
   </div>
 
   <div class="content">
-<!--
-    <div class="section-block">
-      <div class="section-label">What's inside</div>
-      <div class="section-title">Components &amp; Materials</div>
-      <div class="components-grid">
-        <div class="component-card"><i class="ti ti-cpu"></i><div><div class="component-name">ATmega328P</div><div class="component-detail">Microcontroller</div></div></div>
-        <div class="component-card"><i class="ti ti-antenna"></i><div><div class="component-name">GP2Y0A21YK0F IR Sensor</div><div class="component-detail">Position sensing</div></div></div>
-        <div class="component-card"><i class="ti ti-engine"></i><div><div class="component-name">MG966R Servo Motor</div><div class="component-detail">Platform actuation</div></div></div>
-        <div class="component-card"><i class="ti ti-box"></i><div><div class="component-name">3D Printed Frame</div><div class="component-detail">SolidWorks prints</div></div></div>
-      </div>
-    </div>
--->
     <div class="section-block">
       <div class="section-label">Content</div>
       <div class="section-title">About PID</div>
