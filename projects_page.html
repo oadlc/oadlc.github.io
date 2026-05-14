@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Oscar De La Cerda</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
+    .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-icons { display: flex; gap: 1rem; margin-left: 1.5rem; border-left: 1px solid var(--border); padding-left: 1.5rem; }
+    .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
+    .nav-icons a:hover { color: var(--text); }
+
+    .page { max-width: 900px; margin: 0 auto; padding: 6rem 2.5rem 4rem; }
+    .page-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .page-title { font-size: 36px; font-weight: 400; margin-bottom: 3rem; letter-spacing: -0.5px; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 3rem; }
+    .project-card { text-decoration: none; color: inherit; display: block; }
+    .project-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; margin-bottom: 1rem; }
+    .project-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; margin-bottom: 1rem; }
+    .project-num { font-family: system-ui, sans-serif; font-size: 11px; color: #aaa; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .project-card h3 { font-size: 17px; font-weight: 400; margin-bottom: 0.5rem; }
+    .project-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+    .tag { font-family: system-ui, sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; }
+    .learn-more { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text); border: 1px solid var(--border); padding: 8px 16px; display: inline-block; letter-spacing: 0.5px; transition: background 0.2s; }
+    .project-card:hover .learn-more { background: var(--bg2); }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 4rem; }
+    .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
+    .footer-icons { display: flex; gap: 1rem; }
+    .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
+    .footer-icons a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">Oscar De La Cerda</a>
+    <div class="nav-links">
+      <a href="projects.html">Projects</a>
+      <a href="Oscar's_Resume.pdf" download>Resume</a>
+      <a href="mailto:oscardelac07@gmail.com">Contact</a>
+      <div class="nav-icons">
+        <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
+        <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-label">What I've built</div>
+    <div class="page-title">Projects</div>
+
+    <div class="projects-grid">
+
+      <a href="ball_leveler.html" class="project-card">
+        <img src="PID_beam.jpeg" class="project-img" alt="Ball Leveler">
+        <div class="project-num">01</div>
+        <h3>Ball Leveler</h3>
+        <p>PID-controlled system using IR sensors and an ATmega328P to stabilize a ball at the center of a platform.</p>
+        <div class="tags"><span class="tag">C</span><span class="tag">ATmega328P</span><span class="tag">SolidWorks</span><span class="tag">PID</span></div>
+        <span class="learn-more">Learn more →</span>
+      </a>
+
+      <a href="radio_transmitter.html" class="project-card">
+        <img src="solder_front.jpeg" class="project-img" alt="Radio Transmitter">
+        <div class="project-num">02</div>
+        <h3>Radio Transmitter</h3>
+        <p>Built an AM radio transmitter on a perforated PCB using a crystal oscillator and audio transformer.</p>
+        <div class="tags"><span class="tag">RF Electronics</span><span class="tag">Soldering</span><span class="tag">PCB</span></div>
+        <span class="learn-more">Learn more →</span>
+      </a>
+
+      <a href="PWM_module.html" class="project-card">
+        <div class="project-img-placeholder">No photo yet</div>
+        <div class="project-num">03</div>
+        <h3>PWM Generator</h3>
+        <p>Constructed a circuit board that generates a pulse-width modulation signal using an FPGA.</p>
+        <div class="tags"><span class="tag">VHDL</span><span class="tag">FPGA</span><span class="tag">Signal Processing</span></div>
+        <span class="learn-more">Learn more →</span>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-name">© 2026 Oscar De La Cerda · Electrical Engineer</span>
+    <div class="footer-icons">
+      <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
+      <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
