@@ -39,6 +39,29 @@
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .footer-icons a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .hero { width: 100%; }
+      .hero-text h1 { font-size: 48px; }
+      .hero-text p { font-size: 12px; }
+    
+      .bio-section { flex-direction: column; gap: 2rem; padding: 3rem 1.5rem; }
+      .bio-photo { width: 100%; }
+      .bio-photo img, .bio-photo-placeholder { aspect-ratio: 4/3; }
+      .bio-text h2 { font-size: 28px; }
+      .btn-dark, .btn-outline { width: 100%; text-align: center; }
+    
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 56px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.25rem; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-icons { border-left: none; padding-left: 0; margin-left: 0; }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+      .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger { display: none; }
+    }
+    
   </style>
 </head>
 <body>
@@ -54,6 +77,9 @@
         <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
       </div>
     </div>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page">
