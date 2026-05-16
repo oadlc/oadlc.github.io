@@ -49,6 +49,18 @@
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .footer-icons a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .hero { width: 100%; }
+      .hero-text h1 { font-size: 48px; }
+      .hero-text p { font-size: 12px; }
+      .bio-section { flex-direction: column; gap: 2rem; padding: 3rem 1.5rem; }
+      .bio-photo { width: 100%; }
+      .bio-photo img, .bio-photo-placeholder { aspect-ratio: 4/3; }
+      .bio-text h2 { font-size: 28px; }
+      .btn-dark, .btn-outline { width: 100%; text-align: center; }
+      .nav-name { font-size: 13px; }
+    }
   </style>
 </head>
 <body>
