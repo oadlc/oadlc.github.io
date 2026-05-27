@@ -37,7 +37,7 @@
     .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
     .result-label { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
 
-    .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .links-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; }
     .link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
     .link-btn:hover { background: var(--bg2); }
     .link-btn i { font-size: 16px; color: var(--muted); }
@@ -60,48 +60,35 @@
 
   <div class="hero">
     <h1>Robotic Hand</h1>
-    <p>Built a robotic hand that mimics free-floating hand movements. Used Google's Hand tracking library, 5 SG90 servos,
-      and an ATmega328P microcontroller.</p>
+    <p>Built a robotic hand that mimics free-floating hand movements. Used Google's Hand tracking library, 5 SG90 servos, and an ATmega328P microcontroller.</p>
   </div>
 
   <div class="content">
 
+ 
     <div class="section-block">
       <div class="section-title">Photo</div>
       <img src="robotic_hand.jpeg" class="photo-single" alt="Robotic Hand">
     </div>
+
 
     <div class="section-block">
       <div class="section-title">Circuit Schematic</div>
       <div class="schematic-box">
         <img src="robotic_hand.png" alt="Circuit schematic">
       </div>
-      <p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the Arduino pins. 
-        This is because each ATmega328P output pin can supply a maximum of 40mA, while each servo draws between 170–290mA under load — far exceeding 
-        what the microcontroller can safely provide.</p>
-      <p class="body-text">For the external supply, I used two 18650 lithium-ion batteries. I initially planned to wire them in series for a combined 
-        7.4V output and use a 5V buck converter to step the voltage down. However, due to the current charge levels of the batteries — one measuring 
-        4V and the other 1.3V — the combined voltage was approximately 5.3V, which is within the acceptable operating range for the SG90 servos. This 
-        made the buck converter unnecessary, simplifying the circuit.</p>
+      <p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the Arduino pins. This is because each ATmega328P output pin can supply a maximum of 40mA, while each servo draws between 170–290mA under load — far exceeding what the microcontroller can safely provide.</p>
+      <p class="body-text">For the external supply, I used two 18650 lithium-ion batteries. I initially planned to wire them in series for a combined 7.4V output and use a 5V buck converter to step the voltage down. However, due to the current charge levels of the batteries — one measuring 4V and the other 1.3V — the combined voltage was approximately 5.3V, which is within the acceptable operating range for the SG90 servos. This made the buck converter unnecessary, simplifying the circuit.</p>
     </div>
 
     <div class="section-block">
       <div class="section-title">Code</div>
-      <div class="schematic-box">
-      <a href="robotic_hand_python.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Python Code</a>
-      <a href="robot_hand.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Arduino (.ino) Code</a>
-      <p class="body-text">The coding was arguably the most difficult. Particularly, trying to figure how Python should communicate
-      to the Arduino via USB, and how to implement a hand tracking system was challenging. For this project, I implemented Mediadpipe - Google's Hand
-      Tracking library to be able to track finger movements. Once finger orientations were deciphered, I implemented a function to find the bend angle of
-      each finger. To do this, I used the dot product formula to find cos(theta) between two vectors. One vector pointed from the middle joint to the tip
-      of the finger, and the other vector pointed from the middle joint to the kunckle of the finger. These angles were then sent via USB to the uploaded
-      Arduino script. </p>
-      <p class="body-text">The hardest challenge was debugging upon completion of the code. Once I ran the Python script, the SG90 servos would track
-      my fingers for the first iteration, and then completely stop after. The issue lied in the fact that Python was sending messages too quickly for the
-      Arduino. By the time that the very first Python message was procecced by the Arduino script, and then sent to the servo motors, there would be around 3-4
-      new Python messages waiting in the USB buffer. The fix: instead of trying to read all of the Python messages, read only the most recent one. This
-      was mostly handled on the Arduino script side of the code, where all of the Python messages are discarded but the last one. This ensures that
-      the servos do not freeze while trying to keep up with all of the messages in the buffer.</p>
+      <div class="links-row">
+        <a href="robotic_hand_python.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Python Code</a>
+        <a href="robot_hand.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Arduino (.ino) Code</a>
+      </div>
+      <p class="body-text">The coding was arguably the most difficult part of this project. Figuring out how Python should communicate with the Arduino via USB, and how to implement a hand tracking system, were both significant challenges. I used MediaPipe — Google's hand tracking library — to track finger movements in real time. Once finger orientations were identified, I implemented a function to calculate the bend angle of each finger using the dot product formula to find the angle between two vectors: one pointing from the middle joint to the fingertip, and the other from the middle joint to the knuckle. These angles were then sent via USB to the Arduino script.</p>
+      <p class="body-text">The hardest challenge came during debugging after the code was complete. Once I ran the Python script, the SG90 servos would track my fingers on the first iteration and then completely stop. The issue was that Python was sending messages faster than the Arduino could process them. By the time the first message was read and sent to the servo motors, there were already 3–4 new messages waiting in the USB buffer. The fix was to discard all but the most recent message on the Arduino side, ensuring the servos always respond to the latest finger position rather than freezing while trying to catch up with a backlog of stale commands.</p>
     </div>
 
     <div class="section-block">
@@ -113,12 +100,18 @@
       </div>
       <p class="body-text" style="margin-top:1rem">Update this paragraph to describe your results — how accurately the hand mimics movement, any latency observations, and how it was demonstrated.</p>
     </div>
-
+    
     <div class="section-block">
-      <div class="section-title">Links</div>
-      <div class="links-row">
-        <a href="https://youtu.be/OLoOWA_lEn0" target="_blank" class="link-btn"><i class="ti ti-brand-youtube"></i> Demo Video</a>
-      </div>
+      <div class="section-title">Demo Video</div>
+      <iframe 
+        width="100%" 
+        height="450" 
+        src="https://www.youtube.com/embed/OLoOWA_lEn0" 
+        title="Robotic Hand Demo" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
 
   </div>
