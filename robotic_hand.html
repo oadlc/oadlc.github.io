@@ -32,11 +32,6 @@
     .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); }
     .schematic-box img { max-width: 100%; display: block; }
 
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-    .result-card { padding: 1.25rem; border-right: 1px solid var(--border); text-align: center; }
-    .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
-    .result-label { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
-
     .links-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; }
     .link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
     .link-btn:hover { background: var(--bg2); }
@@ -91,15 +86,6 @@
       <p class="body-text">The hardest challenge came during debugging after the code was complete. Once I ran the Python script, the SG90 servos would track my fingers on the first iteration and then completely stop. The issue was that Python was sending messages faster than the Arduino could process them. By the time the first message was read and sent to the servo motors, there were already 3–4 new messages waiting in the USB buffer. The fix was to discard all but the most recent message on the Arduino side, ensuring the servos always respond to the latest finger position rather than freezing while trying to catch up with a backlog of stale commands.</p>
     </div>
 
-    <div class="section-block">
-      <div class="section-title">Results</div>
-      <div class="results-grid">
-        <div class="result-card"><div class="result-val">5</div><div class="result-label">Fingers actuated</div></div>
-        <div class="result-card"><div class="result-val">Real-time</div><div class="result-label">Tracking speed</div></div>
-        <div class="result-card"><div class="result-val">SG90</div><div class="result-label">Servo model</div></div>
-      </div>
-      <p class="body-text" style="margin-top:1rem">Update this paragraph to describe your results — how accurately the hand mimics movement, any latency observations, and how it was demonstrated.</p>
-    </div>
     
     <div class="section-block">
       <div class="section-title">Demo Video</div>
