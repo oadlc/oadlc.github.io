@@ -36,11 +36,6 @@
     .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); min-height: 180px; }
     .schematic-box img { max-width: 100%; display: block; }
 
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-    .result-card { padding: 1.25rem; border-right: 1px solid var(--border); text-align: center; }
-    .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
-    .result-label { font-family: 'Open Sans', sans-serif; font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
-
     .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
     .link-btn { font-family: 'Open Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
     .link-btn:hover { background: var(--bg2); }
@@ -87,20 +82,6 @@
         <img src="radio_schematic.png" alt="Radio transmitter schematic">
       </div>
     </div>
-
-    <div class="section-block">
-      <div class="section-title">Results</div>
-      <div class="results-grid">
-        <div class="result-card"><div class="result-val">1MHz</div><div class="result-label">Carrier frequency</div></div>
-        <div class="result-card"><div class="result-val">AM</div><div class="result-label">Modulation type</div></div>
-        <div class="result-card"><div class="result-val">2</div><div class="result-label">Components used</div></div>
-      </div>
-      <p class="body-text" style="margin-top:1rem">Successfully transmitted an AM signal at 1MHz using only a crystal 
-        oscillator and audio transformer soldered onto a perforated board. The simplicity of the circuit demonstrated how
-        carrier wave generation and audio modulation can be achieved with minimal components.</p>
-    </div>
-
-  </div>
 
   <footer>
     <span class="footer-name">© 2026 Oscar De La Cerda · Electrical Engineer</span>
