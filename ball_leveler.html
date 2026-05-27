@@ -43,12 +43,6 @@
     .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); }
     .schematic-box img { max-width: 100%; display: block; }
 
-    /* RESULTS */
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-bottom: 1.5rem; }
-    .result-card { padding: 1.25rem; border-right: 1px solid var(--border); text-align: center; }
-    .result-val { font-size: 24px; font-weight: 400; color: var(--text); }
-    .result-label { font-family: 'Open Sans', sans-serif; font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
-
     /* LINKS */
     .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
     .link-btn { font-family: 'Open Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
@@ -129,25 +123,14 @@
       <p class="body-text">An MG996R Servo Motor was selected due to its high torque rating and durable metal gears.
         Smaller plastic-geared servos could not withstand the rapid oscillations caused by the beam and its weight. 
         Additionally, an IR sensor was chosen instead of an ultrasonic sensor because it provides a continuous analog voltage output.
-        In contrast, an ultrasonic sensor must wait for an echo to return before producing a measurement. With a 20 ms PID feedback loop, 
+        In contrast, an ultrasonic sensor must wait for an echo to return before producing a measurement. With a 20ms PID feedback loop, 
         this sensing delay would reduce the responsiveness and overall performance of the control system.</p>
-      
       <p class="body-text">As shown above, the MG996R servo is powered by an external DC source to prevent damage to the Arduino output pins. 
-        The servo can draw up to 2.5 A of stall current, which is far greater than the 40 mA maximum current rating of an ATmega328P output pin.
+        The servo can draw up to 2.5A of stall current, which is far greater than the 40mA maximum current rating of an ATmega328P output pin.
         Before using an external power source, the servo was briefly powered directly from the Arduino pins. This resulted in small, infrequent 
-        jitters because the Arduino could not supply sufficient current to drive the motor properly. A 10 &micro;F bypass capacitor was also added 
+        jitters because the Arduino could not supply sufficient current to drive the motor properly. A 10&micro;F bypass capacitor was also added 
         to reduce high-frequency noise by shunting unwanted signals to ground, improving overall power stability and servo performance.</p>
-    </div>
-
-
-    <div class="section-block">
-      <div class="section-title">Results</div>
-      <div class="results-grid">
-        <div class="result-card"><div class="result-val">&lt;5mm</div><div class="result-label">Steady-state error</div></div>
-        <div class="result-card"><div class="result-val">~2s</div><div class="result-label">Settling time</div></div>
-        <div class="result-card"><div class="result-val">50Hz</div><div class="result-label">Control loop rate</div></div>
-      </div>
-      <p class="body-text" style="margin-top:1rem">The PID controller was tuned iteratively using step response testing. 
+      <p class="body-text">The PID controller was tuned iteratively using step response testing. 
         Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. The system was 
         demonstrated at the end-of-semester design expo.</p>
     </div>
