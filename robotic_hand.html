@@ -89,9 +89,14 @@
       <div class="schematic-box">
         <img src="robotic_schematic.png" alt="Circuit schematic">
       </div>
-      <p class="body-text">Update this paragraph to describe your schematic — how the servos are wired to the ATmega328P, 
-        power supply considerations, and any other relevant circuit decisions.</p>
-    </div>
+<p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the Arduino pins. 
+  This is because each ATmega328P output pin can supply a maximum of 40mA, while each servo draws between 170–290mA under load: this far excedes
+  what the microcontroller can safely provide.</p>
+
+<p class="body-text">For the external supply, I used two 18650 lithium-ion batteries. I initially planned to wire them in series for a 
+  combined 7.4V output and use a 5V buck converter to step the voltage down. However, due to the current charge levels of the batteries — 
+  one measuring 4V and the other 1.3V — the combined voltage was approximately 5.3V, which is within the acceptable operating range for the 
+  SG90 servos. This made the buck converter unnecessary, simplifying the circuit.</p>
 
     <div class="section-block">
       <div class="section-title">Results</div>
