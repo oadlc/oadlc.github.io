@@ -6,53 +6,45 @@
   <title>Self-Balancing Beam — Oscar De La Cerda</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #555555; --light: #aaaaaa; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
 
-    /* NAV */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; text-decoration: none; color: var(--text); }
     .back-btn { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .back-btn:hover { color: var(--text); }
 
-    /* HERO */
     .hero { max-width: 820px; margin: 0 auto; padding: 4rem 2.5rem 2.5rem; border-bottom: 1px solid var(--border); }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
-    .tag { font-family: 'Open Sans', sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; }
-    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.5px; }
-    .hero p { font-family: 'Open Sans', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: 1px; }
+    .hero p { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 640px; }
 
-    /* CONTENT */
     .content { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
     .section-block { padding: 3rem 0; border-bottom: 1px solid var(--border); }
     .section-block:last-child { border-bottom: none; }
-    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; margin-bottom: 1.5rem; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
 
-    p.body-text { font-family: 'Open Sans', sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-    ul { font-family: 'Open Sans', sans-serif; font-size: 14px; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
+    p.body-text { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    ul { font-size: 14px; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
     ul li { margin-bottom: 0.4rem; }
 
-    /* PHOTOS */
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1.5rem; }
     .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 
-    /* SCHEMATIC */
     .schematic-box { border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: var(--bg2); }
     .schematic-box img { max-width: 100%; display: block; }
 
-    /* LINKS */
-    .links-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .link-btn { font-family: 'Open Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
+    .links-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; }
+    .link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; color: var(--text); font-size: 13px; text-decoration: none; transition: background 0.2s; }
     .link-btn:hover { background: var(--bg2); }
     .link-btn i { font-size: 16px; color: var(--muted); }
     .sldprt-links { display: flex; flex-direction: column; gap: 8px; margin-top: 1.25rem; }
 
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 4rem; }
-    .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
+    video { width: 100%; border: 1px solid var(--border); display: block; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-name { font-size: 14px; color: var(--muted); }
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .footer-icons a:hover { color: var(--text); }
@@ -69,28 +61,29 @@
 
   <div class="hero">
     <h1>Self-Balancing Beam</h1>
-    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
+    <p>A PID-controlled system that stabilizes a ball at the center of a platform using a GP2Y0A21YK0F IR Sensor, an MG966R servo, and an ATmega328P 
+      microcontroller. Achieved sub-5mm steady-state error with a custom tuned feedback loop.</p>
   </div>
 
   <div class="content">
+
+
     <div class="section-block">
       <div class="section-title">About The PID Controller</div>
-      <p class="body-text">A PID control system is a feedback control method used to continuously adjust 
-        a system so that it reaches and maintains a desired target value. PID stands for Proportional, Integral, 
-        and Derivative, which are the three components used to calculate the control response.</p>
+      <p class="body-text">A PID control system is a feedback control method used to continuously adjust a system so that it reaches and maintains a
+        desired target value. PID stands for Proportional, Integral, and Derivative, which are the three components used to calculate the control response.</p>
       <ul>
-        <li><strong>Proportional (P):</strong> Responds to the current error — the difference between the desired 
-          value and the measured value. A larger error produces a larger correction.</li>
-        <li><strong>Integral (I):</strong> Responds to the accumulation of past errors. This helps eliminate small 
-          steady-state errors that the proportional term alone cannot remove.</li>
-        <li><strong>Derivative (D):</strong> Predicts future error by measuring how quickly the error is changing. 
-          This helps reduce overshoot and improve system stability.</li>
+        <li><strong>Proportional (P):</strong> Responds to the current error — the difference between the desired value and the measured value. A larger
+          error produces a larger correction.</li>
+        <li><strong>Integral (I):</strong> Responds to the accumulation of past errors. This helps eliminate small steady-state errors that the 
+          proportional term alone cannot remove.</li>
+        <li><strong>Derivative (D):</strong> Predicts future error by measuring how quickly the error is changing. This helps reduce overshoot and 
+          improve system stability.</li>
       </ul>
-      <p class="body-text">A PID controller continuously combines these three terms to determine how much correction 
-        should be applied to the system. For this ball-beam system, the error is the difference between the reference 
-        distance (the center of the beam) and the ball's actual position. That error is then inputted to the PID controller. 
-        The output of the controller is an arbitrary number that depends on the P, I, and D constants: in my case it was in 
-        the range of -200 to 200. This was then mapped to an angle the servo could use.</p>
+      <p class="body-text">A PID controller continuously combines these three terms to determine how much correction should be applied to the system.
+        For this ball-beam system, the error is the difference between the reference distance (the center of the beam) and the ball's actual position. 
+        That error is inputted to the PID controller, which outputs a value in the range of -200 to 200 depending on the P, I, and D constants. This was
+        then mapped to an angle the servo could use.</p>
       <p class="body-text">Here is the code that implemented the PID system, along with sensor debouncing and managing servo outputs.</p>
       <a href="SRC.ino" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Source Code</a>
     </div>
@@ -99,10 +92,10 @@
     <div class="section-block">
       <div class="section-title">Photos</div>
       <div class="photo-grid">
-        <img src="PID_beam.jpeg" alt="Ball Leveler photo">
+        <img src="PID_beam.jpeg" alt="Self-Balancing Beam">
       </div>
-      <p class="body-text">The following are links to SLDPRT files made in SolidWorks. These include the base of the beam, 
-        the hinge mechanism, and the case for the MG966R servo that allows it to stand upright.</p>
+      <p class="body-text">The following are links to SLDPRT files made in SolidWorks. These include the base of the beam, the hinge mechanism, and 
+        the case for the MG966R servo that allows it to stand upright.</p>
       <div class="sldprt-links">
         <a href="Base_for_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Base for beam</a>
         <a href="Dynamic_hinge_beam.SLDPRT" class="link-btn" download><i class="ti ti-cube"></i> Dynamic hinge at centroid</a>
@@ -115,24 +108,23 @@
       </div>
     </div>
 
+  
     <div class="section-block">
       <div class="section-title">Circuit Schematic</div>
       <div class="schematic-box">
         <img src="PID_schematic.png" alt="Circuit schematic">
       </div>
-      <p class="body-text">An MG996R Servo Motor was selected due to its high torque rating and durable metal gears.
-        Smaller plastic-geared servos could not withstand the rapid oscillations caused by the beam and its weight. 
-        Additionally, an IR sensor was chosen instead of an ultrasonic sensor because it provides a continuous analog voltage output.
-        In contrast, an ultrasonic sensor must wait for an echo to return before producing a measurement. With a 20ms PID feedback loop, 
-        this sensing delay would reduce the responsiveness and overall performance of the control system.</p>
-      <p class="body-text">As shown above, the MG996R servo is powered by an external DC source to prevent damage to the Arduino output pins. 
-        The servo can draw up to 2.5A of stall current, which is far greater than the 40mA maximum current rating of an ATmega328P output pin.
-        Before using an external power source, the servo was briefly powered directly from the Arduino pins. This resulted in small, infrequent 
-        jitters because the Arduino could not supply sufficient current to drive the motor properly. A 10&micro;F bypass capacitor was also added 
-        to reduce high-frequency noise by shunting unwanted signals to ground, improving overall power stability and servo performance.</p>
-      <p class="body-text">The PID controller was tuned iteratively using step response testing. 
-        Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable leveling across a range of initial disturbances. The system was 
-        demonstrated at the end-of-semester design expo.</p>
+      <p class="body-text">An MG996R Servo Motor was selected due to its high torque rating and durable metal gears. Smaller plastic-geared servos 
+        could not withstand the rapid oscillations caused by the beam and its weight. Additionally, an IR sensor was chosen instead of an ultrasonic
+        sensor because it provides a continuous analog voltage output. In contrast, an ultrasonic sensor must wait for an echo to return before producing
+        a measurement. With a 20ms PID feedback loop, this sensing delay would reduce the responsiveness and overall performance of the control system.</p>
+      <p class="body-text">As shown above, the MG996R servo is powered by an external DC source to prevent damage to the Arduino output pins. The servo can 
+        draw up to 2.5A of stall current, which is far greater than the 40mA maximum current rating of an ATmega328P output pin. Before using an external 
+        power source, the servo was briefly powered directly from the Arduino pins. This resulted in small, infrequent jitters because the Arduino could 
+        not supply sufficient current to drive the motor properly. A 10&micro;F bypass capacitor was also added to reduce high-frequency noise by shunting 
+        unwanted signals to ground, improving overall power stability and servo performance.</p>
+      <p class="body-text">The PID controller was tuned iteratively using step response testing. Final gains of Kp=18, Ki=7.5, Kd=0.5 produced stable 
+        leveling across a range of initial disturbances. The system was demonstrated at the end-of-semester design expo.</p>
     </div>
 
 
