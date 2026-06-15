@@ -14,11 +14,19 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
-    .nav-links a { font-family: 'Open Sans', sans-serif; font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-icons { display: flex; gap: 1rem; margin-left: 1.5rem; border-left: 1px solid var(--border); padding-left: 1.5rem; }
     .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .nav-icons a:hover { color: var(--text); }
+
+    .contact-wrap { position: relative; }
+    .contact-wrap > a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; cursor: pointer; }
+    .contact-wrap > a:hover { color: var(--text); }
+    .contact-menu { display: none; position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid var(--border); padding: 0.875rem 1.25rem; white-space: nowrap; font-size: 13px; color: var(--muted); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .contact-menu.show { display: block; }
+    .contact-menu a { color: var(--text); text-decoration: none; font-size: 13px; }
+    .contact-menu a:hover { text-decoration: underline; }
 
     .page { max-width: 900px; margin: 0 auto; padding: 6rem 2.5rem 4rem; }
     .page-title { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 400; margin-bottom: 3rem; letter-spacing: -0.5px; }
@@ -26,42 +34,29 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 3rem; }
     .project-card { text-decoration: none; color: inherit; display: block; }
     .project-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; margin-bottom: 1rem; }
-    .project-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; margin-bottom: 1rem; }
+    .project-img-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 12px; margin-bottom: 1rem; }
     .project-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; margin-bottom: 0.5rem; }
-    .project-card p { font-family: 'Open Sans', sans-serif; font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
-    .tag { font-family: 'Open Sans', sans-serif; font-size: 11px; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; }
-    .learn-more { font-family: 'Open Sans', sans-serif; font-size: 12px; color: var(--text); border: 1px solid var(--border); padding: 8px 16px; display: inline-block; letter-spacing: 0.5px; transition: background 0.2s; }
+    .project-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .learn-more { font-size: 12px; color: var(--text); border: 1px solid var(--border); padding: 8px 16px; display: inline-block; letter-spacing: 0.5px; transition: background 0.2s; }
     .project-card:hover .learn-more { background: var(--bg2); }
 
     footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 4rem; }
-    .footer-name { font-size: 14px; color: var(--muted); font-family: system-ui, sans-serif; }
+    .footer-name { font-size: 14px; color: var(--muted); }
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .footer-icons a:hover { color: var(--text); }
 
     @media (max-width: 768px) {
-      .hero { width: 100%; }
-      .hero-text h1 { font-size: 48px; }
-      .hero-text p { font-size: 12px; }
-    
-      .bio-section { flex-direction: column; gap: 2rem; padding: 3rem 1.5rem; }
-      .bio-photo { width: 100%; }
-      .bio-photo img, .bio-photo-placeholder { aspect-ratio: 4/3; }
-      .bio-text h2 { font-size: 28px; }
-      .btn-dark, .btn-outline { width: 100%; text-align: center; }
-    
       .nav-links { display: none; flex-direction: column; position: fixed; top: 56px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.25rem; z-index: 99; }
       .nav-links.open { display: flex; }
       .nav-icons { border-left: none; padding-left: 0; margin-left: 0; }
       .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
       .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); }
+      .contact-menu { left: 0; transform: none; }
     }
-
     @media (min-width: 769px) {
       .hamburger { display: none; }
     }
-    
   </style>
 </head>
 <body>
@@ -71,7 +66,12 @@
     <div class="nav-links">
       <a href="projects_page.html">Projects</a>
       <a href="Oscar's_Resume.pdf" download>Resume</a>
-      <a href="mailto:oscardelac07@gmail.com">Contact</a>
+      <div class="contact-wrap">
+        <a onclick="document.getElementById('contactMenu').classList.toggle('show'); return false;">Contact</a>
+        <div class="contact-menu" id="contactMenu">
+          <a href="mailto:oscardelac07@gmail.com">oscardelac07@gmail.com</a>
+        </div>
+      </div>
       <div class="nav-icons">
         <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
         <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
@@ -97,7 +97,7 @@
       <a href="robotic_hand.html" class="project-card">
         <img src="robotic_hand.jpeg" class="project-img" style="aspect-ratio: unset; object-fit: contain; max-height: 350px;" alt="Robotic Hand">
         <h3>Robotic Hand</h3>
-        <p>Fully designed and built a robotic hand that tracks actual finger movments.</p>
+        <p>Fully designed and built a robotic hand that tracks actual finger movements.</p>
         <span class="learn-more">Learn more →</span>
       </a>
 
@@ -107,7 +107,6 @@
         <p>Built an AM radio transmitter on a perforated PCB using a crystal oscillator and audio transformer.</p>
         <span class="learn-more">Learn more →</span>
       </a>
-
 
     </div>
   </div>
@@ -119,6 +118,16 @@
       <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('contactMenu');
+      const wrap = document.querySelector('.contact-wrap');
+      if (menu && wrap && !wrap.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
 
 </body>
 </html>
