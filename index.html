@@ -11,7 +11,6 @@
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #444444; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
 
-
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
     .nav-name { font-size: 15px; font-weight: 400; letter-spacing: 0.5px; text-decoration: none; color: var(--text); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -21,57 +20,58 @@
     .nav-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .nav-icons a:hover { color: var(--text); }
 
-    /* HERO — circuit bg + name only */
+    .contact-wrap { position: relative; }
+    .contact-wrap > a { font-family: 'Open Sans', sans-serif; font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; cursor: pointer; }
+    .contact-wrap > a:hover { color: var(--text); }
+    .contact-menu { display: none; position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid var(--border); padding: 0.875rem 1.25rem; white-space: nowrap; font-size: 13px; color: var(--muted); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .contact-menu.show { display: block; }
+    .contact-menu a { color: var(--text); text-decoration: none; font-size: 13px; }
+    .contact-menu a:hover { text-decoration: underline; }
+
     .hero { margin-top: 56px; position: relative; height: 85vh; min-height: 460px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat; filter: brightness(0.45); }
     .hero-text { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
     .hero-text h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 72px; font-weight: 700; color: #ffffff; letter-spacing: 2px; line-height: 1.0; margin-bottom: 1rem; text-transform: uppercase; }
     .hero-text p { font-family: 'Open Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); letter-spacing: 3px; text-transform: uppercase; }
 
-
     .bio-section { max-width: 900px; margin: 0 auto; padding: 6rem 2.5rem; display: flex; align-items: flex-start; gap: 4rem; border-bottom: 1px solid var(--border); }
     .bio-photo { width: 320px; flex-shrink: 0; }
     .bio-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
-    .bio-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--bg2); border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-family: system-ui, sans-serif; font-size: 12px; text-align: center; padding: 1rem; }
+    .bio-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--bg2); border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 12px; text-align: center; padding: 1rem; }
     .bio-text { flex: 1; padding-top: 0.5rem; }
-    .bio-label { font-family: 'Open Sans', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .bio-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
     .bio-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
-    .bio-text p { font-family: 'Open Sans', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+    .bio-text p { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
     .bio-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.75rem; }
-    .btn-dark { background: var(--text); color: #fff; padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s; }
+    .btn-dark { background: var(--text); color: #fff; padding: 10px 26px; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s; }
     .btn-dark:hover { opacity: 0.8; }
-    .btn-outline { background: transparent; color: var(--text); padding: 10px 26px; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 500; border: 1px solid var(--border); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
+    .btn-outline { background: transparent; color: var(--text); padding: 10px 26px; font-size: 13px; font-weight: 500; border: 1px solid var(--border); cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: border-color 0.2s; }
     .btn-outline:hover { border-color: var(--text); }
 
-
     footer { padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-name { font-size: 14px; color: var(--muted); font-family: 'Open Sans', sans-serif; }
+    .footer-name { font-size: 14px; color: var(--muted); }
     .footer-icons { display: flex; gap: 1rem; }
     .footer-icons a { color: var(--muted); font-size: 18px; text-decoration: none; transition: color 0.2s; }
     .footer-icons a:hover { color: var(--text); }
 
     @media (max-width: 768px) {
-      .hero { width: 100%; }
       .hero-text h1 { font-size: 48px; }
       .hero-text p { font-size: 12px; }
-    
       .bio-section { flex-direction: column; gap: 2rem; padding: 3rem 1.5rem; }
       .bio-photo { width: 100%; }
       .bio-photo img, .bio-photo-placeholder { aspect-ratio: 4/3; }
       .bio-text h2 { font-size: 28px; }
       .btn-dark, .btn-outline { width: 100%; text-align: center; }
-    
       .nav-links { display: none; flex-direction: column; position: fixed; top: 56px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.25rem; z-index: 99; }
       .nav-links.open { display: flex; }
       .nav-icons { border-left: none; padding-left: 0; margin-left: 0; }
       .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
       .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); }
+      .contact-menu { left: 0; transform: none; }
     }
-    
     @media (min-width: 769px) {
       .hamburger { display: none; }
     }
-    
   </style>
 </head>
 <body>
@@ -80,8 +80,13 @@
     <a href="index.html" class="nav-name">Oscar De La Cerda</a>
     <div class="nav-links">
       <a href="projects_page.html">Projects</a>
-      <a href="Oscar's Resume.pdf" download>Resume</a>
-      <a href="mailto:oscardelac07@gmail.com">Contact</a>
+      <a href="Oscar's_Resume.pdf" download>Resume</a>
+      <div class="contact-wrap">
+        <a onclick="document.getElementById('contactMenu').classList.toggle('show'); return false;">Contact</a>
+        <div class="contact-menu" id="contactMenu">
+          <a href="mailto:oscardelac07@gmail.com">oscardelac07@gmail.com</a>
+        </div>
+      </div>
       <div class="nav-icons">
         <a href="https://linkedin.com/in/oscardelacerda/" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
         <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
@@ -92,7 +97,6 @@
     </button>
   </nav>
 
-
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-text">
@@ -100,7 +104,6 @@
       <p>Electrical Engineer · Yale University</p>
     </div>
   </div>
-
 
   <div class="bio-section">
     <div class="bio-photo">
@@ -126,6 +129,16 @@
       <a href="https://github.com/oadlc" target="_blank"><i class="ti ti-brand-github"></i></a>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('contactMenu');
+      const wrap = document.querySelector('.contact-wrap');
+      if (menu && wrap && !wrap.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
 
 </body>
 </html>
