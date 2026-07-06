@@ -6,6 +6,7 @@
   <title>2-Axis Stabilizer — Oscar De La Cerda</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #ffffff; --bg2: #f7f7f7; --border: #e0e0e0; --text: #111111; --muted: #555555; --light: #aaaaaa; }
@@ -26,6 +27,8 @@
     .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
 
     p.body-text { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    ul { font-size: 14px; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem; }
+    ul li { margin-bottom: 0.5rem; }
 
     .photo-single { display: block; max-height: 450px; object-fit: contain; border: 1px solid var(--border); margin: 0 auto 1.5rem; }
 
@@ -55,88 +58,92 @@
 
   <div class="hero">
     <h1>2-Axis Stabilizer</h1>
-    <p>As a follow up to the previous ball stabilizer project, I wanted to add an additional axis of movement. This project
-    uses 3 MG966R servo motors, and ESP32, and a custom made PCB.</p>
+    <p>As a follow up to the previous ball stabilizer project, I wanted to add an additional axis of movement. This project uses 3 MG966R 
+      servo motors, the ESP32 Wrover Module, and a custom made PCB.</p>
   </div>
 
   <div class="content">
 
- 
     <div class="section-block">
       <div class="section-title">Photo</div>
       <img src="PID2.jpeg" class="photo-single" alt="2-Axis Stabilizer">
-      <p class="body-text">The frame was designed on SolidWorks and followed the classic 3-RPS Parallel Manipulator mechanics. Final servo angles
-      (a1, a2, a3) were defined via IK (Inverse Kinematics). To find the turn angle for the MG966R servos, the IK followed this pipeline:
-      - Find the tilt angles of the platform (which were the outputs from the x and y PID functions).
-      - Apply the tilt angles to the formula for a plane: Z(x,y) = z0 + ax + by. Where a = arctan(tilt_x) and b = arctan(tilt_y).
-      - Given the height z for a leg, solve for the mechanical angle between the leg and the horizontal - using trig and Law of Cosines.
-      - Convert the mechanical angle to a servo angle using an offset.</p>
+      <div class="links-row">
+        <a href="CAD_PID2.zip" class="link-btn" download><i class="ti ti-cube"></i> Download CAD Parts</a>
+      </div>
+      <p class="body-text">The frame was designed in SolidWorks following the classic 3-RPS Parallel Manipulator mechanics. Final servo angles 
+        (a1, a2, a3) were computed via Inverse Kinematics using the following pipeline:</p>
+      <ul>
+        <li>Find the tilt angles of the platform — the outputs from the x and y PID functions.</li>
+        <li>Apply the tilt angles to the plane equation \( Z(x,y) = z_0 + ax + by \), where \( a = \arctan(\text{tilt}_x) \) and \( b = \arctan(\text{tilt}_y) \).</li>
+        <li>Given the leg height z, solve for the mechanical angle between the leg and the horizontal using trigonometry and the Law of Cosines.</li>
+        <li>Convert the mechanical angle to a servo angle using a fixed offset.</li>
+      </ul>
     </div>
 
-
     <div class="section-block">
-      <div class="section-title">Circuit Schematic - KiCad</div>
+      <div class="section-title">Circuit Schematic — KiCad</div>
       <div class="schematic-box">
         <img src="ESP32_Circuit.png" alt="Circuit schematic">
       </div>
-      <p class="body-text">The purpose behind this PCB is to reduce the need for jumper cables and to make the design more modular. Also, 
-      I wanted to gain experience in the whole process of manufacturing a custom PCB: from designing to uploading the Gerber files to a PCB manufacturer.</p>
-      <p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the ESP32 pins.
-        This is because each ESP32 pin can supply a maximum of 20mA, while each servo draws between 170–290mA under load — far exceeding
-        what the microcontroller can safely provide. For the external power supply, I used a DC power supply. I also conected decoupling capacitors
-      between power and GND to discharge rapid changes in current and background noise.</p>
-      <p class="body-text">Through making this board on KiCad, I learned how to assign Net Labels to pin outputs so that there is no need for
-      wire connections and how to assign footprints to each component of the circuit.</p>
+      <p class="body-text">The purpose of this PCB is to eliminate the need for jumper cables and make the design more modular. It also 
+        gave me hands-on experience with the full PCB manufacturing process: from designing the schematic to uploading Gerber files to a manufacturer.</p>
+      <p class="body-text">The servos are powered from an external DC supply rather than directly from the ESP32 pins, since each ESP32 pin 
+        can supply only 20mA while each servo draws 170–290mA under load. Decoupling capacitors were also added between power and ground to 
+        suppress rapid current changes and background noise.</p>
+      <p class="body-text">Through this project I learned how to use Net Labels in KiCad to connect pins without drawing explicit wires, and 
+        how to assign footprints to each schematic component.</p>
     </div>
 
     <div class="section-block">
-      <div class="section-title">PCB Schematic - KiCad</div>
+      <div class="section-title">PCB Layout — KiCad</div>
       <div class="schematic-box">
-        <img src="ESP32_PCB.png" alt="PCB schematic">
+        <img src="ESP32_PCB.png" alt="PCB layout">
       </div>
-      <p class="body-text">Originally, I traced the power nets on the board, but this was problematic: the traces were too wide because the servos drew 
-      large amounts of current. Using DigiKey's PCB Trace Width Conversion Calculator, the traces ended up being 3.17mm wide. The fix: use power
-      and ground planes instead of traces. The ground plane takes up all of the back Copper layer, while the power plane takes up around
-      half of the front Copper layer.</p>
-      <p class="body-text">Through making this board on KiCad, I learned how to assign Net Labels to pin outputs so that there is no need for
-      wire connections.</p>
+      <p class="body-text">Originally I routed the power nets using traces, but the high servo current demanded trace widths of 3.17mm;
+        too wide to be practical. Using DigiKey's PCB Trace Width Calculator confirmed this, so I switched to copper pours instead. 
+        The ground plane fills the entire back copper layer, while the power plane occupies roughly half of the front copper layer.</p>
     </div>
 
     <div class="section-block">
-      <div class="section-title">3D View - KiCad</div>
+      <div class="section-title">3D View — KiCad</div>
       <div class="schematic-box">
-        <img src="ESP32_3D.png" alt="3D View">
+        <img src="ESP32_3D.png" alt="3D view of PCB">
       </div>
-    <div>
+    </div>
 
+    <!-- CODE -->
     <div class="section-block">
       <div class="section-title">Code</div>
       <div class="links-row">
-        <a href="Python Balancer Script.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Python Code</a>
-        <a href="CameraServer_and_Servo_actuation.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Arduino (.ino) Code</a>
+        <a href="Python Balancer Script.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> Python Code</a>
+        <a href="CameraServer_and_Servo_actuation.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> Arduino (.ino) Code</a>
       </div>
-      <p class="body-text">The coding was arguably the most difficult part of this project. Figuring out how Python should communicate with the Arduino
-        via USB, and how to implement a hand tracking system, were both significant challenges. I used MediaPipe, or Google's hand tracking library, 
-        to track finger movements in real time. Once finger orientations were identified, I implemented a function to calculate the bend angle of each 
-        finger using the dot product formula to find the angle between two vectors: one pointing from the middle joint to the fingertip, and the other 
-        from the middle joint to the knuckle. These angles were then sent via USB to the Arduino script.</p>
-      <p class="body-text">The hardest challenge came during debugging after the code was complete. Once I ran the Python script, the SG90 servos would
-        track my fingers on the first iteration and then completely stop. The issue was that Python was sending messages faster than the Arduino could 
-        process them. By the time the first message was read and sent to the servo motors, there were already 3–4 new messages waiting in the USB buffer.
-        The fix was to discard all but the most recent message on the Arduino side, ensuring the servos always respond to the latest finger position rather
-        than freezing while trying to catch up with a backlog of stale commands.</p>
+      <p class="body-text">The ESP32 Wrover Module includes a built-in camera with a standard script, CameraWebServer.ino, that lets 
+        users interface with it over a network. My .ino code uses that as its backbone, with two key modifications: the ESP32 creates its own 
+        Access Point (AP) instead of connecting to an existing WiFi network, and servo actuation logic is added on top.</p>
+      <p class="body-text">Once a computer connects to the ESP32's AP, JPEG frames from the camera are streamed to Python via URL. On the 
+        Python side, OpenCV decodes the frames and a color mask isolates the orange ping pong ball. The center of the camera frame serves as 
+        the reference position, and the ball's x/y coordinates are tracked in real time. The error between the ball's position and the frame center 
+        is fed into the PID controller, whose output is then passed to the IK pipeline described above.</p>
+      <p class="body-text">Initially, servo angles were sent from Python to the ESP32 over HTTP. This caused problems because HTTP requires 
+        a full TCP handshake where the sender must wait for an acknowledgment before sending the next packet. If a packet was lost, TCP would 
+        retransmit it, adding latency. The Python script kept timing out while waiting for the ESP32 to respond. As a partial fix, I implemented a 
+        two-thread mutex: one thread runs the main loop writing the latest servo angle, and a worker thread grabs and sends that angle over a 
+        persistent session pool. This reduced overhead but did not fully solve the timeout issue.</p>
+      <p class="body-text">The real fix was switching from HTTP to UDP. UDP is connectionless: it sends a packet to an IP address and port
+        and moves on immediately without waiting for any acknowledgment. This eliminates the blocking behavior entirely, gives lower latency, 
+        and never stalls the data stream. Python doesn't know if a message arrived, but for this application, that is not necessary.</p>
     </div>
 
-    
     <div class="section-block">
       <div class="section-title">Demo Video</div>
-      <iframe 
-        width="100%" 
-        height="450" 
-        src="https://www.youtube.com/embed/OLoOWA_lEn0" 
-        title="Robotic Hand Demo" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      <iframe
+        width="100%"
+        height="450"
+        src="https://www.youtube.com/embed/OLoOWA_lEn0"
+        title="2-Axis Stabilizer Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
