@@ -74,9 +74,10 @@
         (a1, a2, a3) were computed via Inverse Kinematics using the following pipeline:</p>
       <ul>
         <li>Find the tilt angles of the platform — the outputs from the x and y PID functions.</li>
-        <li>Apply the tilt angles to the plane equation \( Z(x,y) = z_0 + ax + by \), where \( a = \arctan(\text{tilt}_x) \) and \( b = \arctan(\text{tilt}_y) \).</li>
-        <li>Given the leg height z, solve for the mechanical angle between the leg and the horizontal using trigonometry and the Law of Cosines.</li>
-        <li>Convert the mechanical angle to a servo angle using a fixed offset.</li>
+        <li>Apply the tilt angles to the plane equation \( Z(x,y) = z_0 + ax + by \), where \( a = \arctan(\text{tilt}_x) \), \( b = \arctan(\text{tilt}_y) \), and 
+          \( z_0 \) is the nominal height of the platform with no tilt.</li>
+        <li>Given the leg height \( Z(x,y) \), solve for the mechanical angle between the servo arm and the horizontal using trigonometry and the Law of Cosines.</li>
+        <li>Convert the mechanical angle to a servo angle using a fixed offset: \( \text{Command}(\theta) = \text{Offset} - \text{Mechanical}(\theta) \)</li>
       </ul>
     </div>
 
