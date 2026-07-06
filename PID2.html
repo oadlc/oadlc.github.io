@@ -56,7 +56,7 @@
   <div class="hero">
     <h1>2-Axis Stabilizer</h1>
     <p>As a follow up to the previous ball stabilizer project, I wanted to add an additional axis of movement. This project
-    uses 3 MG966R servo motors, and ESP32, and a custom made PCB</p>
+    uses 3 MG966R servo motors, and ESP32, and a custom made PCB.</p>
   </div>
 
   <div class="content">
@@ -69,21 +69,45 @@
 
 
     <div class="section-block">
-      <div class="section-title">Circuit Schematic</div>
+      <div class="section-title">Circuit Schematic - KiCad</div>
       <div class="schematic-box">
-        <img src="robotic_hand.png" alt="Circuit schematic">
+        <img src="ESP32_Circuit.png" alt="Circuit schematic">
       </div>
-      <p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the Arduino pins.
-        This is because each ATmega328P output pin can supply a maximum of 40mA, while each servo draws between 170–290mA under load — far exceeding
-        what the microcontroller can safely provide.</p>
-      <p class="body-text">For the external supply, I used a DC power supply.</p>
+      <p class="body-text">The purpose behind this PCB is to reduce the need for jumper cables and to make the design more modular. Also, 
+      I wanted to gain experience in the whole process of manufacturing a custom PCB: from designing to uploading the Gerber files to a PCB manufacturer.</p>
+      <p class="body-text">From the schematic above, the servos are all powered from an external source rather than directly from the ESP32 pins.
+        This is because each ESP32 pin can supply a maximum of 20mA, while each servo draws between 170–290mA under load — far exceeding
+        what the microcontroller can safely provide. For the external power supply, I used a DC power supply. I also conected decoupling capacitors
+      between power and GND to discharge rapid changes in current and background noise.</p>
+      <p class="body-text">Through making this board on KiCad, I learned how to assign Net Labels to pin outputs so that there is no need for
+      wire connections and how to assign footprints to each component of the circuit.</p>
     </div>
+
+    <div class="section-block">
+      <div class="section-title">PCB Schematic - KiCad</div>
+      <div class="schematic-box">
+        <img src="ESP32_PCB.png" alt="PCB schematic">
+      </div>
+      <p class="body-text">Originally, I traced the power nets on the board, but this was problematic: the traces were too wide because the servos drew 
+      large amounts of current. Using DigiKey's PCB Trace Width Conversion Calculator, the traces ended up being 3.17mm wide. The fix: use power
+      and ground planes instead of traces. The ground plane takes up all of the back Copper layer, while the power plane takes up around
+      half of the front Copper layer.</p>
+      <p class="body-text">Through making this board on KiCad, I learned how to assign Net Labels to pin outputs so that there is no need for
+      wire connections.</p>
+    </div>
+
+    <div class="section-block">
+      <div class="section-title">3D View - KiCad</div>
+      <div class="schematic-box">
+        <img src="ESP32_3D.png" alt="3D View">
+      </div>
+    <div>
 
     <div class="section-block">
       <div class="section-title">Code</div>
       <div class="links-row">
-        <a href="robotic_hand_python.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Python Code</a>
-        <a href="robot_hand.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Arduino (.ino) Code</a>
+        <a href="Python Balancer Script.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Python Code</a>
+        <a href="CameraServer_and_Servo_actuation.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> View Arduino (.ino) Code</a>
       </div>
       <p class="body-text">The coding was arguably the most difficult part of this project. Figuring out how Python should communicate with the Arduino
         via USB, and how to implement a hand tracking system, were both significant challenges. I used MediaPipe, or Google's hand tracking library, 
