@@ -60,6 +60,7 @@
     <h1>2-Axis Stabilizer</h1>
     <p>As a follow up to the previous ball stabilizer project, I wanted to add an additional axis of movement. This project uses 3 MG966R 
       servo motors, the ESP32 Wrover Module, and a custom made PCB.</p>
+    <a href="ball_leveler.html" style="display:inline-block; margin-top:1.25rem; font-size:13px; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px; transition:color 0.2s;">← Previous project: Self-Balancing Beam</a>
   </div>
 
   <div class="content">
@@ -74,7 +75,7 @@
         (a1, a2, a3) were computed via Inverse Kinematics using the following pipeline:</p>
       <ul>
         <li>Find the tilt angles of the platform — the outputs from the x and y PID functions.</li>
-        <li>Apply the tilt angles to the plane equation \( Z(x,y) = z_0 + ax + by \), where \( a = \arctan(\text{tilt}_x) \), \( b = \arctan(\text{tilt}_y) \), and 
+        <li>Apply the tilt angles to the plane equation \( Z(x,y) = z_0 + ax + by \), where \( a = \arctan(\text{x}_tilt) \), \( b = \arctan(\text{y}_tilt) \), and 
           \( z_0 \) is the nominal height of the platform with no tilt.</li>
         <li>Given the leg height \( Z(x,y) \), solve for the mechanical angle between the servo arm and the horizontal using trigonometry and the Law of Cosines.</li>
         <li>Convert the mechanical angle to a servo angle using a fixed offset: \( \text{Command}(\theta) = \text{Offset} - \text{Mechanical}(\theta) \)</li>
@@ -100,7 +101,7 @@
       <div class="schematic-box">
         <img src="ESP32_PCB.png" alt="PCB layout">
       </div>
-      <p class="body-text">Originally I routed the power nets using traces, but the high servo current demanded trace widths of 3.17mm;
+      <p class="body-text">Originally I routed the power nets using traces, but the high servo current demanded trace widths of 3.17mm - 
         too wide to be practical. Using DigiKey's PCB Trace Width Calculator confirmed this, so I switched to copper pours instead. 
         The ground plane fills the entire back copper layer, while the power plane occupies roughly half of the front copper layer.</p>
     </div>
