@@ -126,6 +126,8 @@
           <figcaption style="font-size:12px; color:var(--light); text-align:center; padding:8px 0;">Back</figcaption>
         </figure>
       </div>
+      <p class="body-text">While the logic of the PCB worked as intended (traces were correctly routed and the connections yielded appropiate
+      values when measured with multimeter), the distance between the female pin headers was 1mm too wide for the ESP32 male headers. </p>
     </div>
     
     <div class="section-block">
@@ -135,7 +137,7 @@
         <a href="CameraServer_and_Servo_actuation.zip" target="_blank" class="link-btn"><i class="ti ti-code"></i> Arduino (.ino) Code</a>
       </div>
       <p class="body-text">The ESP32 Wrover Module includes a built-in camera with a standard script, CameraWebServer.ino, that lets 
-        users interface with it over a network. My .ino code uses that as its backbone, with two key modifications: the ESP32 creates its own 
+        users interface with it over a network. My .ino code uses that standard scripts as its backbone, with two key modifications: the ESP32 creates its own 
         Access Point (AP) instead of connecting to an existing WiFi network, and servo actuation logic is added on top.</p>
       <p class="body-text">Once a computer connects to the ESP32's AP, JPEG frames from the camera are streamed to Python via URL. On the 
         Python side, OpenCV decodes the frames and a color mask isolates the orange ping pong ball. The center of the camera frame serves as 
